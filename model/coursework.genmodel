@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/tdt4250.coursework/src-gen" creationIcons="false"
+    editDirectory="/tdt4250.coursework.edit/src-gen" editorDirectory="/tdt4250.coursework.editor/src-gen"
+    modelPluginID="tdt4250.coursework" modelName="Coursework" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>coursework.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Coursework" basePackage="tdt4250" disposableProviderFactory="true"
+      ecorePackage="coursework.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="coursework.ecore#//EvaluationKinds">
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//EvaluationKinds/Exam"/>
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//EvaluationKinds/Project"/>
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//EvaluationKinds/Assignment"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="coursework.ecore#//TimetableSlotKinds">
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//TimetableSlotKinds/Lab"/>
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//TimetableSlotKinds/Lecture"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="coursework.ecore#//RoleKinds">
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//RoleKinds/Lecturer"/>
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//RoleKinds/Course%20Coordinator"/>
+      <genEnumLiterals ecoreEnumLiteral="coursework.ecore#//RoleKinds/Other"/>
+    </genEnums>
+    <genClasses ecoreClass="coursework.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Course/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Course/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Course/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Course/size"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Course/recommendedCourse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Course/courseinstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Course/requiredCourse"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//CourseInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//CourseInstance/semesterDate"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coursework.ecore#//CourseInstance/semesterSpecificCourseInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//CourseInstance/evaluationform"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//CourseInstance/timetable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//CourseInstance/role"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//Organisation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Organisation/departmentName"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Organisation/staff"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Person/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coursework.ecore#//Person/worksIn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Person/role"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//EvaluationForm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//EvaluationForm/evaluation"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//Timetable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Timetable/lecture"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//StudyProgram">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//StudyProgram/course"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//TimetableSlot">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//TimetableSlot/room"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//TimetableSlot/studyprogram"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//TimetableSlot/TimetableSlotKind"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//Room"/>
+    <genClasses ecoreClass="coursework.ecore#//Evaluation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Evaluation/evaluationKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Evaluation/totalPercentage"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Role/roleKind"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
