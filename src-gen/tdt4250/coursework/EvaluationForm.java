@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface EvaluationForm extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Evaluation</b></em>' reference list.
+	 * Returns the value of the '<em><b>Evaluation</b></em>' containment reference list.
 	 * The list contents are of type {@link tdt4250.coursework.Evaluation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -32,9 +32,9 @@ public interface EvaluationForm extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Evaluation</em>' reference list.
+	 * @return the value of the '<em>Evaluation</em>' containment reference list.
 	 * @see tdt4250.coursework.CourseworkPackage#getEvaluationForm_Evaluation()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Evaluation> getEvaluation();

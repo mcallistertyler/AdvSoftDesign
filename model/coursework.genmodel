@@ -54,7 +54,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Person/role"/>
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//EvaluationForm">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//EvaluationForm/evaluation"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//EvaluationForm/evaluation"/>
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//Timetable">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Timetable/lecture"/>
@@ -70,6 +70,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//TimetableSlot/studyprogram"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//TimetableSlot/TimetableSlotKind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//TimetableSlot/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//TimetableSlot/date"/>
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//Room"/>
     <genClasses ecoreClass="coursework.ecore#//Evaluation">

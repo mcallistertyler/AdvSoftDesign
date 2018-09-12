@@ -3,11 +3,14 @@
 package tdt4250.coursework.impl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import tdt4250.coursework.CourseworkPackage;
 import tdt4250.coursework.Evaluation;
 import tdt4250.coursework.EvaluationForm;
@@ -27,7 +30,7 @@ import tdt4250.coursework.EvaluationForm;
  */
 public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements EvaluationForm {
 	/**
-	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' reference list.
+	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEvaluation()
@@ -62,10 +65,24 @@ public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<Evaluation> getEvaluation() {
 		if (evaluation == null) {
-			evaluation = new EObjectResolvingEList<Evaluation>(Evaluation.class, this,
+			evaluation = new EObjectContainmentEList<Evaluation>(Evaluation.class, this,
 					CourseworkPackage.EVALUATION_FORM__EVALUATION);
 		}
 		return evaluation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CourseworkPackage.EVALUATION_FORM__EVALUATION:
+			return ((InternalEList<?>) getEvaluation()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

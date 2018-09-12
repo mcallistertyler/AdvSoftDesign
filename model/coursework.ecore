@@ -53,7 +53,7 @@
       <details key="constraints" value="totalPercentageEqualsOneHundred"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="evaluation" lowerBound="1"
-        upperBound="-1" eType="#//Evaluation"/>
+        upperBound="-1" eType="#//Evaluation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Timetable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -77,6 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimetableSlotKind" lowerBound="1"
         eType="#//TimetableSlotKinds"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Room"/>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation">

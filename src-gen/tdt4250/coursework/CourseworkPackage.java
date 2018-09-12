@@ -369,7 +369,7 @@ public interface CourseworkPackage extends EPackage {
 	int EVALUATION_FORM = 4;
 
 	/**
-	 * The feature id for the '<em><b>Evaluation</b></em>' reference list.
+	 * The feature id for the '<em><b>Evaluation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -543,13 +543,22 @@ public interface CourseworkPackage extends EPackage {
 	int TIMETABLE_SLOT__DURATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMETABLE_SLOT__DATE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Timetable Slot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIMETABLE_SLOT_FEATURE_COUNT = 4;
+	int TIMETABLE_SLOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Timetable Slot</em>' class.
@@ -1020,10 +1029,10 @@ public interface CourseworkPackage extends EPackage {
 	EClass getEvaluationForm();
 
 	/**
-	 * Returns the meta object for the reference list '{@link tdt4250.coursework.EvaluationForm#getEvaluation <em>Evaluation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link tdt4250.coursework.EvaluationForm#getEvaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Evaluation</em>'.
+	 * @return the meta object for the containment reference list '<em>Evaluation</em>'.
 	 * @see tdt4250.coursework.EvaluationForm#getEvaluation()
 	 * @see #getEvaluationForm()
 	 * @generated
@@ -1158,6 +1167,17 @@ public interface CourseworkPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTimetableSlot_Duration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.coursework.TimetableSlot#getDate <em>Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Date</em>'.
+	 * @see tdt4250.coursework.TimetableSlot#getDate()
+	 * @see #getTimetableSlot()
+	 * @generated
+	 */
+	EAttribute getTimetableSlot_Date();
 
 	/**
 	 * Returns the meta object for class '{@link tdt4250.coursework.Room <em>Room</em>}'.
@@ -1515,7 +1535,7 @@ public interface CourseworkPackage extends EPackage {
 		EClass EVALUATION_FORM = eINSTANCE.getEvaluationForm();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluation</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Evaluation</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1623,6 +1643,14 @@ public interface CourseworkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIMETABLE_SLOT__DURATION = eINSTANCE.getTimetableSlot_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIMETABLE_SLOT__DATE = eINSTANCE.getTimetableSlot_Date();
 
 		/**
 		 * The meta object literal for the '{@link tdt4250.coursework.impl.RoomImpl <em>Room</em>}' class.

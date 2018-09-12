@@ -568,6 +568,15 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTimetableSlot_Date() {
+		return (EAttribute) timetableSlotEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRoom() {
 		return roomEClass;
 	}
@@ -737,6 +746,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		createEReference(timetableSlotEClass, TIMETABLE_SLOT__STUDYPROGRAM);
 		createEAttribute(timetableSlotEClass, TIMETABLE_SLOT__TIMETABLE_SLOT_KIND);
 		createEAttribute(timetableSlotEClass, TIMETABLE_SLOT__DURATION);
+		createEAttribute(timetableSlotEClass, TIMETABLE_SLOT__DATE);
 
 		roomEClass = createEClass(ROOM);
 
@@ -859,7 +869,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEClass(evaluationFormEClass, EvaluationForm.class, "EvaluationForm", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvaluationForm_Evaluation(), this.getEvaluation(), null, "evaluation", null, 1, -1,
-				EvaluationForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				EvaluationForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timetableEClass, Timetable.class, "Timetable", !IS_ABSTRACT, !IS_INTERFACE,
@@ -896,6 +906,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEAttribute(getTimetableSlot_Duration(), ecorePackage.getEFloat(), "duration", null, 0, 1,
 				TimetableSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimetableSlot_Date(), ecorePackage.getEDate(), "date", null, 0, 1, TimetableSlot.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

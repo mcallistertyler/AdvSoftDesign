@@ -308,14 +308,16 @@ public class CourseworkValidator extends EObjectValidator {
 		for (StudyProgram program : timetable.getCourseinstance().getCourse().getStudyprogram()) {
 			float nbLect = timetable.getLectureHours();
 			float nbLab = timetable.getLabHours();
-			for (Course course: program.getCourse()) {
-				if (course.equals(timetable.getCourseinstance().getCourse())){
+			for (Course course : program.getCourse()) {
+				if (course.equals(timetable.getCourseinstance().getCourse())) {
 					nbLect = timetable.getLectureHours();
 					nbLab = timetable.getLabHours();
 					for (TimetableSlot slot : timetable.getLecture()) {
-						if (slot.getTimetableSlotKind() == TimetableSlotKinds.getByName("Lecture") && slot.getStudyprogram().contains(program)) {
+						if (slot.getTimetableSlotKind() == TimetableSlotKinds.getByName("Lecture")
+								&& slot.getStudyprogram().contains(program)) {
 							nbLect -= slot.getDuration();
-						}else if (slot.getTimetableSlotKind() == TimetableSlotKinds.getByName("Lab")&& slot.getStudyprogram().contains(program)) {
+						} else if (slot.getTimetableSlotKind() == TimetableSlotKinds.getByName("Lab")
+								&& slot.getStudyprogram().contains(program)) {
 							nbLab -= slot.getDuration();
 						}
 					}
@@ -324,15 +326,15 @@ public class CourseworkValidator extends EObjectValidator {
 			bool = (bool && nbLect == 0 && nbLab == 0);
 		}
 
-			if (!bool) {
-				if (diagnostics != null) {
-					diagnostics.add(
-							createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-									new Object[] { "maximumScheduledHours", getObjectLabel(timetable, context) },
-									new Object[] { timetable }, context));
-				}
-				return false;
+		if (!bool) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "maximumScheduledHours", getObjectLabel(timetable, context) },
+								new Object[] { timetable }, context));
 			}
+			return false;
+		}
 		return true;
 	}
 
