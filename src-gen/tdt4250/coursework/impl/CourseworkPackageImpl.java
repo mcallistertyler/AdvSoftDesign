@@ -4,23 +4,29 @@ package tdt4250.coursework.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import tdt4250.coursework.Assignment;
 import tdt4250.coursework.Course;
 import tdt4250.coursework.CourseInstance;
 import tdt4250.coursework.CourseworkFactory;
 import tdt4250.coursework.CourseworkPackage;
+import tdt4250.coursework.CreditReduction;
+import tdt4250.coursework.Evaluation;
 import tdt4250.coursework.EvaluationForm;
-import tdt4250.coursework.Exam;
+import tdt4250.coursework.EvaluationKinds;
 import tdt4250.coursework.Organisation;
-import tdt4250.coursework.Project;
-import tdt4250.coursework.Staff;
-
+import tdt4250.coursework.Person;
+import tdt4250.coursework.Role;
+import tdt4250.coursework.RoleKinds;
+import tdt4250.coursework.Room;
+import tdt4250.coursework.StudyProgram;
+import tdt4250.coursework.Timetable;
+import tdt4250.coursework.TimetableSlot;
+import tdt4250.coursework.TimetableSlotKinds;
 import tdt4250.coursework.util.CourseworkValidator;
 
 /**
@@ -56,7 +62,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass staffEClass = null;
+	private EClass personEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,21 +76,70 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass examEClass = null;
+	private EClass timetableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass assignmentEClass = null;
+	private EClass studyProgramEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass projectEClass = null;
+	private EClass timetableSlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass roomEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evaluationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass roleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass creditReductionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum evaluationKindsEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum timetableSlotKindsEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum roleKindsEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -216,7 +271,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourse_Courseinstance() {
+	public EReference getCourse_SemesterSpecificCourseInstance() {
 		return (EReference) courseEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -227,6 +282,33 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 */
 	public EReference getCourse_RequiredCourse() {
 		return (EReference) courseEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCourse_Organisation() {
+		return (EReference) courseEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCourse_Creditreduction() {
+		return (EReference) courseEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCourse_Studyprogram() {
+		return (EReference) courseEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -252,8 +334,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCourseInstance_Timetable() {
-		return (EAttribute) courseInstanceEClass.getEStructuralFeatures().get(1);
+	public EReference getCourseInstance_Course() {
+		return (EReference) courseInstanceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -261,16 +343,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourseInstance_SemesterSpecificCourseInstance() {
-		return (EReference) courseInstanceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCourseInstance_Staff() {
+	public EReference getCourseInstance_Timetable() {
 		return (EReference) courseInstanceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -279,8 +352,17 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCourseInstance_Evaluationform() {
+	public EReference getCourseInstance_Role() {
 		return (EReference) courseInstanceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCourseInstance_Evaluationform() {
+		return (EReference) courseInstanceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -315,8 +397,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStaff() {
-		return staffEClass;
+	public EReference getOrganisation_Course() {
+		return (EReference) organisationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -324,8 +406,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStaff_Name() {
-		return (EAttribute) staffEClass.getEStructuralFeatures().get(0);
+	public EClass getPerson() {
+		return personEClass;
 	}
 
 	/**
@@ -333,8 +415,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStaff_WorksIn() {
-		return (EReference) staffEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPerson_Name() {
+		return (EAttribute) personEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -342,8 +424,17 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStaff_Role() {
-		return (EAttribute) staffEClass.getEStructuralFeatures().get(2);
+	public EReference getPerson_WorksIn() {
+		return (EReference) personEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPerson_Role() {
+		return (EReference) personEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -360,7 +451,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvaluationForm_Project() {
+	public EReference getEvaluationForm_Evaluation() {
 		return (EReference) evaluationFormEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -369,8 +460,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvaluationForm_Exam() {
-		return (EReference) evaluationFormEClass.getEStructuralFeatures().get(1);
+	public EClass getTimetable() {
+		return timetableEClass;
 	}
 
 	/**
@@ -378,8 +469,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEvaluationForm_Assignment() {
-		return (EReference) evaluationFormEClass.getEStructuralFeatures().get(2);
+	public EReference getTimetable_Lecture() {
+		return (EReference) timetableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -387,8 +478,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExam() {
-		return examEClass;
+	public EAttribute getTimetable_LabHours() {
+		return (EAttribute) timetableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -396,8 +487,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExam_Percentage() {
-		return (EAttribute) examEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTimetable_LectureHours() {
+		return (EAttribute) timetableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -405,8 +496,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAssignment() {
-		return assignmentEClass;
+	public EReference getTimetable_Courseinstance() {
+		return (EReference) timetableEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -414,8 +505,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAssignment_Percentage() {
-		return (EAttribute) assignmentEClass.getEStructuralFeatures().get(0);
+	public EClass getStudyProgram() {
+		return studyProgramEClass;
 	}
 
 	/**
@@ -423,8 +514,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProject() {
-		return projectEClass;
+	public EReference getStudyProgram_Course() {
+		return (EReference) studyProgramEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -432,8 +523,143 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProject_Percentage() {
-		return (EAttribute) projectEClass.getEStructuralFeatures().get(0);
+	public EClass getTimetableSlot() {
+		return timetableSlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimetableSlot_Room() {
+		return (EReference) timetableSlotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimetableSlot_Studyprogram() {
+		return (EReference) timetableSlotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimetableSlot_TimetableSlotKind() {
+		return (EAttribute) timetableSlotEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimetableSlot_Duration() {
+		return (EAttribute) timetableSlotEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRoom() {
+		return roomEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvaluation() {
+		return evaluationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvaluation_EvaluationKind() {
+		return (EAttribute) evaluationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvaluation_TotalPercentage() {
+		return (EAttribute) evaluationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRole() {
+		return roleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRole_RoleKind() {
+		return (EAttribute) roleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCreditReduction() {
+		return creditReductionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreditReduction_Course() {
+		return (EReference) creditReductionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEvaluationKinds() {
+		return evaluationKindsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTimetableSlotKinds() {
+		return timetableSlotKindsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRoleKinds() {
+		return roleKindsEEnum;
 	}
 
 	/**
@@ -471,38 +697,63 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		createEAttribute(courseEClass, COURSE__CONTENT);
 		createEAttribute(courseEClass, COURSE__SIZE);
 		createEReference(courseEClass, COURSE__RECOMMENDED_COURSE);
-		createEReference(courseEClass, COURSE__COURSEINSTANCE);
+		createEReference(courseEClass, COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE);
 		createEReference(courseEClass, COURSE__REQUIRED_COURSE);
+		createEReference(courseEClass, COURSE__ORGANISATION);
+		createEReference(courseEClass, COURSE__CREDITREDUCTION);
+		createEReference(courseEClass, COURSE__STUDYPROGRAM);
 
 		courseInstanceEClass = createEClass(COURSE_INSTANCE);
 		createEAttribute(courseInstanceEClass, COURSE_INSTANCE__SEMESTER_DATE);
-		createEAttribute(courseInstanceEClass, COURSE_INSTANCE__TIMETABLE);
-		createEReference(courseInstanceEClass, COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE);
-		createEReference(courseInstanceEClass, COURSE_INSTANCE__STAFF);
+		createEReference(courseInstanceEClass, COURSE_INSTANCE__COURSE);
 		createEReference(courseInstanceEClass, COURSE_INSTANCE__EVALUATIONFORM);
+		createEReference(courseInstanceEClass, COURSE_INSTANCE__TIMETABLE);
+		createEReference(courseInstanceEClass, COURSE_INSTANCE__ROLE);
 
 		organisationEClass = createEClass(ORGANISATION);
 		createEAttribute(organisationEClass, ORGANISATION__DEPARTMENT_NAME);
 		createEReference(organisationEClass, ORGANISATION__STAFF);
+		createEReference(organisationEClass, ORGANISATION__COURSE);
 
-		staffEClass = createEClass(STAFF);
-		createEAttribute(staffEClass, STAFF__NAME);
-		createEReference(staffEClass, STAFF__WORKS_IN);
-		createEAttribute(staffEClass, STAFF__ROLE);
+		personEClass = createEClass(PERSON);
+		createEAttribute(personEClass, PERSON__NAME);
+		createEReference(personEClass, PERSON__WORKS_IN);
+		createEReference(personEClass, PERSON__ROLE);
 
 		evaluationFormEClass = createEClass(EVALUATION_FORM);
-		createEReference(evaluationFormEClass, EVALUATION_FORM__PROJECT);
-		createEReference(evaluationFormEClass, EVALUATION_FORM__EXAM);
-		createEReference(evaluationFormEClass, EVALUATION_FORM__ASSIGNMENT);
+		createEReference(evaluationFormEClass, EVALUATION_FORM__EVALUATION);
 
-		examEClass = createEClass(EXAM);
-		createEAttribute(examEClass, EXAM__PERCENTAGE);
+		timetableEClass = createEClass(TIMETABLE);
+		createEReference(timetableEClass, TIMETABLE__LECTURE);
+		createEAttribute(timetableEClass, TIMETABLE__LAB_HOURS);
+		createEAttribute(timetableEClass, TIMETABLE__LECTURE_HOURS);
+		createEReference(timetableEClass, TIMETABLE__COURSEINSTANCE);
 
-		assignmentEClass = createEClass(ASSIGNMENT);
-		createEAttribute(assignmentEClass, ASSIGNMENT__PERCENTAGE);
+		studyProgramEClass = createEClass(STUDY_PROGRAM);
+		createEReference(studyProgramEClass, STUDY_PROGRAM__COURSE);
 
-		projectEClass = createEClass(PROJECT);
-		createEAttribute(projectEClass, PROJECT__PERCENTAGE);
+		timetableSlotEClass = createEClass(TIMETABLE_SLOT);
+		createEReference(timetableSlotEClass, TIMETABLE_SLOT__ROOM);
+		createEReference(timetableSlotEClass, TIMETABLE_SLOT__STUDYPROGRAM);
+		createEAttribute(timetableSlotEClass, TIMETABLE_SLOT__TIMETABLE_SLOT_KIND);
+		createEAttribute(timetableSlotEClass, TIMETABLE_SLOT__DURATION);
+
+		roomEClass = createEClass(ROOM);
+
+		evaluationEClass = createEClass(EVALUATION);
+		createEAttribute(evaluationEClass, EVALUATION__EVALUATION_KIND);
+		createEAttribute(evaluationEClass, EVALUATION__TOTAL_PERCENTAGE);
+
+		roleEClass = createEClass(ROLE);
+		createEAttribute(roleEClass, ROLE__ROLE_KIND);
+
+		creditReductionEClass = createEClass(CREDIT_REDUCTION);
+		createEReference(creditReductionEClass, CREDIT_REDUCTION__COURSE);
+
+		// Create enums
+		evaluationKindsEEnum = createEEnum(EVALUATION_KINDS);
+		timetableSlotKindsEEnum = createEEnum(TIMETABLE_SLOT_KINDS);
+		roleKindsEEnum = createEEnum(ROLE_KINDS);
 	}
 
 	/**
@@ -548,75 +799,139 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEReference(getCourse_RecommendedCourse(), this.getCourse(), null, "recommendedCourse", null, 0, -1,
 				Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCourse_Courseinstance(), this.getCourseInstance(),
-				this.getCourseInstance_SemesterSpecificCourseInstance(), "courseinstance", null, 1, -1, Course.class,
+		initEReference(getCourse_SemesterSpecificCourseInstance(), this.getCourseInstance(),
+				this.getCourseInstance_Course(), "semesterSpecificCourseInstance", null, 1, -1, Course.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourse_RequiredCourse(), this.getCourse(), null, "requiredCourse", null, 0, -1, Course.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_Organisation(), this.getOrganisation(), this.getOrganisation_Course(), "organisation",
+				null, 1, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_Creditreduction(), this.getCreditReduction(), null, "creditreduction", null, 0, -1,
+				Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_Studyprogram(), this.getStudyProgram(), this.getStudyProgram_Course(), "studyprogram",
+				null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseInstanceEClass, CourseInstance.class, "CourseInstance", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourseInstance_SemesterDate(), ecorePackage.getEDate(), "semesterDate", null, 0, 1,
 				CourseInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseInstance_Timetable(), ecorePackage.getEString(), "timetable", null, 0, 1,
-				CourseInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getCourseInstance_SemesterSpecificCourseInstance(), this.getCourse(),
-				this.getCourse_Courseinstance(), "semesterSpecificCourseInstance", null, 1, 1, CourseInstance.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCourseInstance_Staff(), this.getStaff(), null, "staff", null, 1, -1, CourseInstance.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourseInstance_Course(), this.getCourse(), this.getCourse_SemesterSpecificCourseInstance(),
+				"course", null, 1, 1, CourseInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourseInstance_Evaluationform(), this.getEvaluationForm(), null, "evaluationform", null, 1, 1,
 				CourseInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourseInstance_Timetable(), this.getTimetable(), this.getTimetable_Courseinstance(),
+				"timetable", null, 1, 1, CourseInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourseInstance_Role(), this.getRole(), null, "role", null, 1, -1, CourseInstance.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(organisationEClass, Organisation.class, "Organisation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrganisation_DepartmentName(), ecorePackage.getEString(), "departmentName", null, 0, 1,
 				Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getOrganisation_Staff(), this.getStaff(), this.getStaff_WorksIn(), "staff", null, 1, -1,
+		initEReference(getOrganisation_Staff(), this.getPerson(), this.getPerson_WorksIn(), "staff", null, 1, -1,
 				Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(staffEClass, Staff.class, "Staff", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaff_Name(), ecorePackage.getEString(), "name", null, 0, 1, Staff.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStaff_WorksIn(), this.getOrganisation(), this.getOrganisation_Staff(), "worksIn", null, 0, 1,
-				Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEReference(getOrganisation_Course(), this.getCourse(), this.getCourse_Organisation(), "course", null, 0, -1,
+				Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStaff_Role(), ecorePackage.getEString(), "role", null, 0, 1, Staff.class, !IS_TRANSIENT,
+
+		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPerson_Name(), ecorePackage.getEString(), "name", null, 0, 1, Person.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_WorksIn(), this.getOrganisation(), this.getOrganisation_Staff(), "worksIn", null, 0, 1,
+				Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_Role(), this.getRole(), null, "role", null, 1, -1, Person.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(evaluationFormEClass, EvaluationForm.class, "EvaluationForm", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvaluationForm_Project(), this.getProject(), null, "project", null, 0, -1,
-				EvaluationForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEReference(getEvaluationForm_Evaluation(), this.getEvaluation(), null, "evaluation", null, 1, -1,
+				EvaluationForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvaluationForm_Exam(), this.getExam(), null, "exam", null, 0, 1, EvaluationForm.class,
+
+		initEClass(timetableEClass, Timetable.class, "Timetable", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTimetable_Lecture(), this.getTimetableSlot(), null, "lecture", null, 0, -1, Timetable.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvaluationForm_Assignment(), this.getAssignment(), null, "assignment", null, 0, -1,
-				EvaluationForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEAttribute(getTimetable_LabHours(), ecorePackage.getEFloat(), "labHours", null, 0, 1, Timetable.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimetable_LectureHours(), ecorePackage.getEFloat(), "lectureHours", null, 0, 1,
+				Timetable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getTimetable_Courseinstance(), this.getCourseInstance(), this.getCourseInstance_Timetable(),
+				"courseinstance", null, 1, 1, Timetable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(studyProgramEClass, StudyProgram.class, "StudyProgram", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStudyProgram_Course(), this.getCourse(), this.getCourse_Studyprogram(), "course", null, 1, -1,
+				StudyProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(examEClass, Exam.class, "Exam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExam_Percentage(), ecorePackage.getEFloat(), "percentage", null, 0, 1, Exam.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(timetableSlotEClass, TimetableSlot.class, "TimetableSlot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAssignment_Percentage(), ecorePackage.getEFloat(), "percentage", null, 0, 1, Assignment.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimetableSlot_Room(), this.getRoom(), null, "room", null, 1, 1, TimetableSlot.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimetableSlot_Studyprogram(), this.getStudyProgram(), null, "studyprogram", null, 1, -1,
+				TimetableSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimetableSlot_TimetableSlotKind(), this.getTimetableSlotKinds(), "TimetableSlotKind", null, 1,
+				1, TimetableSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimetableSlot_Duration(), ecorePackage.getEFloat(), "duration", null, 0, 1,
+				TimetableSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProject_Percentage(), ecorePackage.getEFloat(), "percentage", null, 0, 1, Project.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(evaluationEClass, Evaluation.class, "Evaluation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEvaluation_EvaluationKind(), this.getEvaluationKinds(), "evaluationKind", null, 1, 1,
+				Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluation_TotalPercentage(), ecorePackage.getEFloat(), "totalPercentage", null, 0, 1,
+				Evaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRole_RoleKind(), this.getRoleKinds(), "roleKind", null, 1, 1, Role.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(creditReductionEClass, CreditReduction.class, "CreditReduction", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCreditReduction_Course(), this.getCourse(), null, "course", null, 1, 1, CreditReduction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(evaluationKindsEEnum, EvaluationKinds.class, "EvaluationKinds");
+		addEEnumLiteral(evaluationKindsEEnum, EvaluationKinds.EXAM);
+		addEEnumLiteral(evaluationKindsEEnum, EvaluationKinds.PROJECT);
+		addEEnumLiteral(evaluationKindsEEnum, EvaluationKinds.ASSIGNMENT);
+
+		initEEnum(timetableSlotKindsEEnum, TimetableSlotKinds.class, "TimetableSlotKinds");
+		addEEnumLiteral(timetableSlotKindsEEnum, TimetableSlotKinds.LAB);
+		addEEnumLiteral(timetableSlotKindsEEnum, TimetableSlotKinds.LECTURE);
+
+		initEEnum(roleKindsEEnum, RoleKinds.class, "RoleKinds");
+		addEEnumLiteral(roleKindsEEnum, RoleKinds.LECTURER);
+		addEEnumLiteral(roleKindsEEnum, RoleKinds.COURSE_COORDINATOR);
+		addEEnumLiteral(roleKindsEEnum, RoleKinds.OTHER);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -636,6 +951,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation(courseInstanceEClass, source, new String[] { "constraints", "hasCourseCoordinator" });
 		addAnnotation(evaluationFormEClass, source, new String[] { "constraints", "totalPercentageEqualsOneHundred" });
+		addAnnotation(timetableEClass, source, new String[] { "constraints", "maximumScheduledHours" });
 	}
 
 } //CourseworkPackageImpl

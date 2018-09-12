@@ -87,9 +87,9 @@ public class CourseworkSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CourseworkPackage.STAFF: {
-			Staff staff = (Staff) theEObject;
-			T result = caseStaff(staff);
+		case CourseworkPackage.PERSON: {
+			Person person = (Person) theEObject;
+			T result = casePerson(person);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -101,23 +101,51 @@ public class CourseworkSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CourseworkPackage.EXAM: {
-			Exam exam = (Exam) theEObject;
-			T result = caseExam(exam);
+		case CourseworkPackage.TIMETABLE: {
+			Timetable timetable = (Timetable) theEObject;
+			T result = caseTimetable(timetable);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CourseworkPackage.ASSIGNMENT: {
-			Assignment assignment = (Assignment) theEObject;
-			T result = caseAssignment(assignment);
+		case CourseworkPackage.STUDY_PROGRAM: {
+			StudyProgram studyProgram = (StudyProgram) theEObject;
+			T result = caseStudyProgram(studyProgram);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CourseworkPackage.PROJECT: {
-			Project project = (Project) theEObject;
-			T result = caseProject(project);
+		case CourseworkPackage.TIMETABLE_SLOT: {
+			TimetableSlot timetableSlot = (TimetableSlot) theEObject;
+			T result = caseTimetableSlot(timetableSlot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CourseworkPackage.ROOM: {
+			Room room = (Room) theEObject;
+			T result = caseRoom(room);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CourseworkPackage.EVALUATION: {
+			Evaluation evaluation = (Evaluation) theEObject;
+			T result = caseEvaluation(evaluation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CourseworkPackage.ROLE: {
+			Role role = (Role) theEObject;
+			T result = caseRole(role);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CourseworkPackage.CREDIT_REDUCTION: {
+			CreditReduction creditReduction = (CreditReduction) theEObject;
+			T result = caseCreditReduction(creditReduction);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -173,17 +201,17 @@ public class CourseworkSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Staff</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Person</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Staff</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Person</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStaff(Staff object) {
+	public T casePerson(Person object) {
 		return null;
 	}
 
@@ -203,47 +231,107 @@ public class CourseworkSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Exam</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timetable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Exam</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timetable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExam(Exam object) {
+	public T caseTimetable(Timetable object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Study Program</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Study Program</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAssignment(Assignment object) {
+	public T caseStudyProgram(StudyProgram object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timetable Slot</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timetable Slot</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProject(Project object) {
+	public T caseTimetableSlot(TimetableSlot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Room</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Room</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRoom(Room object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Evaluation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvaluation(Evaluation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRole(Role object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Credit Reduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Credit Reduction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCreditReduction(CreditReduction object) {
 		return null;
 	}
 

@@ -3,26 +3,14 @@
 package tdt4250.coursework.impl;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import tdt4250.coursework.Assignment;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import tdt4250.coursework.CourseworkPackage;
+import tdt4250.coursework.Evaluation;
 import tdt4250.coursework.EvaluationForm;
-import tdt4250.coursework.Exam;
-import tdt4250.coursework.Project;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,43 +20,21 @@ import tdt4250.coursework.Project;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tdt4250.coursework.impl.EvaluationFormImpl#getProject <em>Project</em>}</li>
- *   <li>{@link tdt4250.coursework.impl.EvaluationFormImpl#getExam <em>Exam</em>}</li>
- *   <li>{@link tdt4250.coursework.impl.EvaluationFormImpl#getAssignment <em>Assignment</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.EvaluationFormImpl#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements EvaluationForm {
 	/**
-	 * The cached value of the '{@link #getProject() <em>Project</em>}' containment reference list.
+	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProject()
+	 * @see #getEvaluation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Project> project;
-
-	/**
-	 * The cached value of the '{@link #getExam() <em>Exam</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExam()
-	 * @generated
-	 * @ordered
-	 */
-	protected Exam exam;
-
-	/**
-	 * The cached value of the '{@link #getAssignment() <em>Assignment</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssignment()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Assignment> assignment;
+	protected EList<Evaluation> evaluation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,93 +60,12 @@ public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Project> getProject() {
-		if (project == null) {
-			project = new EObjectContainmentEList<Project>(Project.class, this,
-					CourseworkPackage.EVALUATION_FORM__PROJECT);
+	public EList<Evaluation> getEvaluation() {
+		if (evaluation == null) {
+			evaluation = new EObjectResolvingEList<Evaluation>(Evaluation.class, this,
+					CourseworkPackage.EVALUATION_FORM__EVALUATION);
 		}
-		return project;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Exam getExam() {
-		return exam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExam(Exam newExam, NotificationChain msgs) {
-		Exam oldExam = exam;
-		exam = newExam;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CourseworkPackage.EVALUATION_FORM__EXAM, oldExam, newExam);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExam(Exam newExam) {
-		if (newExam != exam) {
-			NotificationChain msgs = null;
-			if (exam != null)
-				msgs = ((InternalEObject) exam).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CourseworkPackage.EVALUATION_FORM__EXAM, null, msgs);
-			if (newExam != null)
-				msgs = ((InternalEObject) newExam).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CourseworkPackage.EVALUATION_FORM__EXAM, null, msgs);
-			msgs = basicSetExam(newExam, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.EVALUATION_FORM__EXAM, newExam,
-					newExam));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Assignment> getAssignment() {
-		if (assignment == null) {
-			assignment = new EObjectContainmentEList<Assignment>(Assignment.class, this,
-					CourseworkPackage.EVALUATION_FORM__ASSIGNMENT);
-		}
-		return assignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case CourseworkPackage.EVALUATION_FORM__PROJECT:
-			return ((InternalEList<?>) getProject()).basicRemove(otherEnd, msgs);
-		case CourseworkPackage.EVALUATION_FORM__EXAM:
-			return basicSetExam(null, msgs);
-		case CourseworkPackage.EVALUATION_FORM__ASSIGNMENT:
-			return ((InternalEList<?>) getAssignment()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return evaluation;
 	}
 
 	/**
@@ -191,12 +76,8 @@ public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CourseworkPackage.EVALUATION_FORM__PROJECT:
-			return getProject();
-		case CourseworkPackage.EVALUATION_FORM__EXAM:
-			return getExam();
-		case CourseworkPackage.EVALUATION_FORM__ASSIGNMENT:
-			return getAssignment();
+		case CourseworkPackage.EVALUATION_FORM__EVALUATION:
+			return getEvaluation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,16 +91,9 @@ public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CourseworkPackage.EVALUATION_FORM__PROJECT:
-			getProject().clear();
-			getProject().addAll((Collection<? extends Project>) newValue);
-			return;
-		case CourseworkPackage.EVALUATION_FORM__EXAM:
-			setExam((Exam) newValue);
-			return;
-		case CourseworkPackage.EVALUATION_FORM__ASSIGNMENT:
-			getAssignment().clear();
-			getAssignment().addAll((Collection<? extends Assignment>) newValue);
+		case CourseworkPackage.EVALUATION_FORM__EVALUATION:
+			getEvaluation().clear();
+			getEvaluation().addAll((Collection<? extends Evaluation>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,14 +107,8 @@ public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CourseworkPackage.EVALUATION_FORM__PROJECT:
-			getProject().clear();
-			return;
-		case CourseworkPackage.EVALUATION_FORM__EXAM:
-			setExam((Exam) null);
-			return;
-		case CourseworkPackage.EVALUATION_FORM__ASSIGNMENT:
-			getAssignment().clear();
+		case CourseworkPackage.EVALUATION_FORM__EVALUATION:
+			getEvaluation().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -254,12 +122,8 @@ public class EvaluationFormImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CourseworkPackage.EVALUATION_FORM__PROJECT:
-			return project != null && !project.isEmpty();
-		case CourseworkPackage.EVALUATION_FORM__EXAM:
-			return exam != null;
-		case CourseworkPackage.EVALUATION_FORM__ASSIGNMENT:
-			return assignment != null && !assignment.isEmpty();
+		case CourseworkPackage.EVALUATION_FORM__EVALUATION:
+			return evaluation != null && !evaluation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

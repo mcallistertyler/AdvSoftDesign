@@ -16,11 +16,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import tdt4250.coursework.Course;
 import tdt4250.coursework.CourseworkPackage;
 import tdt4250.coursework.Organisation;
-import tdt4250.coursework.Staff;
+import tdt4250.coursework.Person;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +34,7 @@ import tdt4250.coursework.Staff;
  * <ul>
  *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getDepartmentName <em>Department Name</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getStaff <em>Staff</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getCourse <em>Course</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,7 +68,17 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Staff> staff;
+	protected EList<Person> staff;
+
+	/**
+	 * The cached value of the '{@link #getCourse() <em>Course</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCourse()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Course> course;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,12 +126,25 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Staff> getStaff() {
+	public EList<Person> getStaff() {
 		if (staff == null) {
-			staff = new EObjectContainmentWithInverseEList<Staff>(Staff.class, this,
-					CourseworkPackage.ORGANISATION__STAFF, CourseworkPackage.STAFF__WORKS_IN);
+			staff = new EObjectContainmentWithInverseEList<Person>(Person.class, this,
+					CourseworkPackage.ORGANISATION__STAFF, CourseworkPackage.PERSON__WORKS_IN);
 		}
 		return staff;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Course> getCourse() {
+		if (course == null) {
+			course = new EObjectWithInverseResolvingEList<Course>(Course.class, this,
+					CourseworkPackage.ORGANISATION__COURSE, CourseworkPackage.COURSE__ORGANISATION);
+		}
+		return course;
 	}
 
 	/**
@@ -132,6 +158,8 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 		switch (featureID) {
 		case CourseworkPackage.ORGANISATION__STAFF:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getStaff()).basicAdd(otherEnd, msgs);
+		case CourseworkPackage.ORGANISATION__COURSE:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCourse()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -146,6 +174,8 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 		switch (featureID) {
 		case CourseworkPackage.ORGANISATION__STAFF:
 			return ((InternalEList<?>) getStaff()).basicRemove(otherEnd, msgs);
+		case CourseworkPackage.ORGANISATION__COURSE:
+			return ((InternalEList<?>) getCourse()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -162,6 +192,8 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			return getDepartmentName();
 		case CourseworkPackage.ORGANISATION__STAFF:
 			return getStaff();
+		case CourseworkPackage.ORGANISATION__COURSE:
+			return getCourse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,7 +212,11 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			return;
 		case CourseworkPackage.ORGANISATION__STAFF:
 			getStaff().clear();
-			getStaff().addAll((Collection<? extends Staff>) newValue);
+			getStaff().addAll((Collection<? extends Person>) newValue);
+			return;
+		case CourseworkPackage.ORGANISATION__COURSE:
+			getCourse().clear();
+			getCourse().addAll((Collection<? extends Course>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,6 +236,9 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 		case CourseworkPackage.ORGANISATION__STAFF:
 			getStaff().clear();
 			return;
+		case CourseworkPackage.ORGANISATION__COURSE:
+			getCourse().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,6 +256,8 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 					: !DEPARTMENT_NAME_EDEFAULT.equals(departmentName);
 		case CourseworkPackage.ORGANISATION__STAFF:
 			return staff != null && !staff.isEmpty();
+		case CourseworkPackage.ORGANISATION__COURSE:
+			return course != null && !course.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

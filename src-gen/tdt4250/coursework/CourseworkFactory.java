@@ -49,13 +49,13 @@ public interface CourseworkFactory extends EFactory {
 	Organisation createOrganisation();
 
 	/**
-	 * Returns a new object of class '<em>Staff</em>'.
+	 * Returns a new object of class '<em>Person</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Staff</em>'.
+	 * @return a new object of class '<em>Person</em>'.
 	 * @generated
 	 */
-	Staff createStaff();
+	Person createPerson();
 
 	/**
 	 * Returns a new object of class '<em>Evaluation Form</em>'.
@@ -67,31 +67,67 @@ public interface CourseworkFactory extends EFactory {
 	EvaluationForm createEvaluationForm();
 
 	/**
-	 * Returns a new object of class '<em>Exam</em>'.
+	 * Returns a new object of class '<em>Timetable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exam</em>'.
+	 * @return a new object of class '<em>Timetable</em>'.
 	 * @generated
 	 */
-	Exam createExam();
+	Timetable createTimetable();
 
 	/**
-	 * Returns a new object of class '<em>Assignment</em>'.
+	 * Returns a new object of class '<em>Study Program</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assignment</em>'.
+	 * @return a new object of class '<em>Study Program</em>'.
 	 * @generated
 	 */
-	Assignment createAssignment();
+	StudyProgram createStudyProgram();
 
 	/**
-	 * Returns a new object of class '<em>Project</em>'.
+	 * Returns a new object of class '<em>Timetable Slot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Project</em>'.
+	 * @return a new object of class '<em>Timetable Slot</em>'.
 	 * @generated
 	 */
-	Project createProject();
+	TimetableSlot createTimetableSlot();
+
+	/**
+	 * Returns a new object of class '<em>Room</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Room</em>'.
+	 * @generated
+	 */
+	Room createRoom();
+
+	/**
+	 * Returns a new object of class '<em>Evaluation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evaluation</em>'.
+	 * @generated
+	 */
+	Evaluation createEvaluation();
+
+	/**
+	 * Returns a new object of class '<em>Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Role</em>'.
+	 * @generated
+	 */
+	Role createRole();
+
+	/**
+	 * Returns a new object of class '<em>Credit Reduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Credit Reduction</em>'.
+	 * @generated
+	 */
+	CreditReduction createCreditReduction();
 
 	/**
 	 * Returns the package supported by this factory.

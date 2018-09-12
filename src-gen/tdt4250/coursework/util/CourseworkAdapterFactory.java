@@ -82,8 +82,8 @@ public class CourseworkAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseStaff(Staff object) {
-			return createStaffAdapter();
+		public Adapter casePerson(Person object) {
+			return createPersonAdapter();
 		}
 
 		@Override
@@ -92,18 +92,38 @@ public class CourseworkAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseExam(Exam object) {
-			return createExamAdapter();
+		public Adapter caseTimetable(Timetable object) {
+			return createTimetableAdapter();
 		}
 
 		@Override
-		public Adapter caseAssignment(Assignment object) {
-			return createAssignmentAdapter();
+		public Adapter caseStudyProgram(StudyProgram object) {
+			return createStudyProgramAdapter();
 		}
 
 		@Override
-		public Adapter caseProject(Project object) {
-			return createProjectAdapter();
+		public Adapter caseTimetableSlot(TimetableSlot object) {
+			return createTimetableSlotAdapter();
+		}
+
+		@Override
+		public Adapter caseRoom(Room object) {
+			return createRoomAdapter();
+		}
+
+		@Override
+		public Adapter caseEvaluation(Evaluation object) {
+			return createEvaluationAdapter();
+		}
+
+		@Override
+		public Adapter caseRole(Role object) {
+			return createRoleAdapter();
+		}
+
+		@Override
+		public Adapter caseCreditReduction(CreditReduction object) {
+			return createCreditReductionAdapter();
 		}
 
 		@Override
@@ -168,16 +188,16 @@ public class CourseworkAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Staff <em>Staff</em>}'.
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Person <em>Person</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tdt4250.coursework.Staff
+	 * @see tdt4250.coursework.Person
 	 * @generated
 	 */
-	public Adapter createStaffAdapter() {
+	public Adapter createPersonAdapter() {
 		return null;
 	}
 
@@ -196,44 +216,100 @@ public class CourseworkAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Exam <em>Exam</em>}'.
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Timetable <em>Timetable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tdt4250.coursework.Exam
+	 * @see tdt4250.coursework.Timetable
 	 * @generated
 	 */
-	public Adapter createExamAdapter() {
+	public Adapter createTimetableAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Assignment <em>Assignment</em>}'.
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.StudyProgram <em>Study Program</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tdt4250.coursework.Assignment
+	 * @see tdt4250.coursework.StudyProgram
 	 * @generated
 	 */
-	public Adapter createAssignmentAdapter() {
+	public Adapter createStudyProgramAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Project <em>Project</em>}'.
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.TimetableSlot <em>Timetable Slot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tdt4250.coursework.Project
+	 * @see tdt4250.coursework.TimetableSlot
 	 * @generated
 	 */
-	public Adapter createProjectAdapter() {
+	public Adapter createTimetableSlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Room <em>Room</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tdt4250.coursework.Room
+	 * @generated
+	 */
+	public Adapter createRoomAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Evaluation <em>Evaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tdt4250.coursework.Evaluation
+	 * @generated
+	 */
+	public Adapter createEvaluationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.Role <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tdt4250.coursework.Role
+	 * @generated
+	 */
+	public Adapter createRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.CreditReduction <em>Credit Reduction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tdt4250.coursework.CreditReduction
+	 * @generated
+	 */
+	public Adapter createCreditReductionAdapter() {
 		return null;
 	}
 

@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link tdt4250.coursework.CourseInstance#getSemesterDate <em>Semester Date</em>}</li>
- *   <li>{@link tdt4250.coursework.CourseInstance#getTimetable <em>Timetable</em>}</li>
- *   <li>{@link tdt4250.coursework.CourseInstance#getSemesterSpecificCourseInstance <em>Semester Specific Course Instance</em>}</li>
- *   <li>{@link tdt4250.coursework.CourseInstance#getStaff <em>Staff</em>}</li>
+ *   <li>{@link tdt4250.coursework.CourseInstance#getCourse <em>Course</em>}</li>
  *   <li>{@link tdt4250.coursework.CourseInstance#getEvaluationform <em>Evaluationform</em>}</li>
+ *   <li>{@link tdt4250.coursework.CourseInstance#getTimetable <em>Timetable</em>}</li>
+ *   <li>{@link tdt4250.coursework.CourseInstance#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @see tdt4250.coursework.CourseworkPackage#getCourseInstance()
@@ -55,74 +55,76 @@ public interface CourseInstance extends EObject {
 	void setSemesterDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Timetable</b></em>' attribute.
+	 * Returns the value of the '<em><b>Course</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link tdt4250.coursework.Course#getSemesterSpecificCourseInstance <em>Semester Specific Course Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Course</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Course</em>' container reference.
+	 * @see #setCourse(Course)
+	 * @see tdt4250.coursework.CourseworkPackage#getCourseInstance_Course()
+	 * @see tdt4250.coursework.Course#getSemesterSpecificCourseInstance
+	 * @model opposite="semesterSpecificCourseInstance" required="true" transient="false"
+	 * @generated
+	 */
+	Course getCourse();
+
+	/**
+	 * Sets the value of the '{@link tdt4250.coursework.CourseInstance#getCourse <em>Course</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Course</em>' container reference.
+	 * @see #getCourse()
+	 * @generated
+	 */
+	void setCourse(Course value);
+
+	/**
+	 * Returns the value of the '<em><b>Timetable</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link tdt4250.coursework.Timetable#getCourseinstance <em>Courseinstance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Timetable</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Timetable</em>' attribute.
-	 * @see #setTimetable(String)
+	 * @return the value of the '<em>Timetable</em>' containment reference.
+	 * @see #setTimetable(Timetable)
 	 * @see tdt4250.coursework.CourseworkPackage#getCourseInstance_Timetable()
-	 * @model
+	 * @see tdt4250.coursework.Timetable#getCourseinstance
+	 * @model opposite="courseinstance" containment="true" required="true"
 	 * @generated
 	 */
-	String getTimetable();
+	Timetable getTimetable();
 
 	/**
-	 * Sets the value of the '{@link tdt4250.coursework.CourseInstance#getTimetable <em>Timetable</em>}' attribute.
+	 * Sets the value of the '{@link tdt4250.coursework.CourseInstance#getTimetable <em>Timetable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timetable</em>' attribute.
+	 * @param value the new value of the '<em>Timetable</em>' containment reference.
 	 * @see #getTimetable()
 	 * @generated
 	 */
-	void setTimetable(String value);
+	void setTimetable(Timetable value);
 
 	/**
-	 * Returns the value of the '<em><b>Semester Specific Course Instance</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link tdt4250.coursework.Course#getCourseinstance <em>Courseinstance</em>}'.
+	 * Returns the value of the '<em><b>Role</b></em>' reference list.
+	 * The list contents are of type {@link tdt4250.coursework.Role}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Semester Specific Course Instance</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Role</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Semester Specific Course Instance</em>' container reference.
-	 * @see #setSemesterSpecificCourseInstance(Course)
-	 * @see tdt4250.coursework.CourseworkPackage#getCourseInstance_SemesterSpecificCourseInstance()
-	 * @see tdt4250.coursework.Course#getCourseinstance
-	 * @model opposite="courseinstance" required="true" transient="false"
-	 * @generated
-	 */
-	Course getSemesterSpecificCourseInstance();
-
-	/**
-	 * Sets the value of the '{@link tdt4250.coursework.CourseInstance#getSemesterSpecificCourseInstance <em>Semester Specific Course Instance</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Semester Specific Course Instance</em>' container reference.
-	 * @see #getSemesterSpecificCourseInstance()
-	 * @generated
-	 */
-	void setSemesterSpecificCourseInstance(Course value);
-
-	/**
-	 * Returns the value of the '<em><b>Staff</b></em>' reference list.
-	 * The list contents are of type {@link tdt4250.coursework.Staff}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Staff</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Staff</em>' reference list.
-	 * @see tdt4250.coursework.CourseworkPackage#getCourseInstance_Staff()
+	 * @return the value of the '<em>Role</em>' reference list.
+	 * @see tdt4250.coursework.CourseworkPackage#getCourseInstance_Role()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<Staff> getStaff();
+	EList<Role> getRole();
 
 	/**
 	 * Returns the value of the '<em><b>Evaluationform</b></em>' containment reference.

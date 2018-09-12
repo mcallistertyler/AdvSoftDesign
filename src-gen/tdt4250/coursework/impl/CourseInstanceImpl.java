@@ -22,7 +22,8 @@ import tdt4250.coursework.Course;
 import tdt4250.coursework.CourseInstance;
 import tdt4250.coursework.CourseworkPackage;
 import tdt4250.coursework.EvaluationForm;
-import tdt4250.coursework.Staff;
+import tdt4250.coursework.Role;
+import tdt4250.coursework.Timetable;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,10 +34,10 @@ import tdt4250.coursework.Staff;
  * </p>
  * <ul>
  *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getSemesterDate <em>Semester Date</em>}</li>
- *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getTimetable <em>Timetable</em>}</li>
- *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getSemesterSpecificCourseInstance <em>Semester Specific Course Instance</em>}</li>
- *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getStaff <em>Staff</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getCourse <em>Course</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getEvaluationform <em>Evaluationform</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getTimetable <em>Timetable</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseInstanceImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,36 +64,6 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	protected Date semesterDate = SEMESTER_DATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTimetable() <em>Timetable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimetable()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TIMETABLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTimetable() <em>Timetable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTimetable()
-	 * @generated
-	 * @ordered
-	 */
-	protected String timetable = TIMETABLE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getStaff() <em>Staff</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStaff()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Staff> staff;
-
-	/**
 	 * The cached value of the '{@link #getEvaluationform() <em>Evaluationform</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +72,26 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EvaluationForm evaluationform;
+
+	/**
+	 * The cached value of the '{@link #getTimetable() <em>Timetable</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimetable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Timetable timetable;
+
+	/**
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Role> role;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,30 +139,8 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTimetable() {
-		return timetable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTimetable(String newTimetable) {
-		String oldTimetable = timetable;
-		timetable = newTimetable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.COURSE_INSTANCE__TIMETABLE,
-					oldTimetable, timetable));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Course getSemesterSpecificCourseInstance() {
-		if (eContainerFeatureID() != CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE)
+	public Course getCourse() {
+		if (eContainerFeatureID() != CourseworkPackage.COURSE_INSTANCE__COURSE)
 			return null;
 		return (Course) eInternalContainer();
 	}
@@ -181,10 +150,8 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSemesterSpecificCourseInstance(Course newSemesterSpecificCourseInstance,
-			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newSemesterSpecificCourseInstance,
-				CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE, msgs);
+	public NotificationChain basicSetCourse(Course newCourse, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newCourse, CourseworkPackage.COURSE_INSTANCE__COURSE, msgs);
 		return msgs;
 	}
 
@@ -193,25 +160,23 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSemesterSpecificCourseInstance(Course newSemesterSpecificCourseInstance) {
-		if (newSemesterSpecificCourseInstance != eInternalContainer()
-				|| (eContainerFeatureID() != CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE
-						&& newSemesterSpecificCourseInstance != null)) {
-			if (EcoreUtil.isAncestor(this, newSemesterSpecificCourseInstance))
+	public void setCourse(Course newCourse) {
+		if (newCourse != eInternalContainer()
+				|| (eContainerFeatureID() != CourseworkPackage.COURSE_INSTANCE__COURSE && newCourse != null)) {
+			if (EcoreUtil.isAncestor(this, newCourse))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newSemesterSpecificCourseInstance != null)
-				msgs = ((InternalEObject) newSemesterSpecificCourseInstance).eInverseAdd(this,
-						CourseworkPackage.COURSE__COURSEINSTANCE, Course.class, msgs);
-			msgs = basicSetSemesterSpecificCourseInstance(newSemesterSpecificCourseInstance, msgs);
+			if (newCourse != null)
+				msgs = ((InternalEObject) newCourse).eInverseAdd(this,
+						CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE, Course.class, msgs);
+			msgs = basicSetCourse(newCourse, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE,
-					newSemesterSpecificCourseInstance, newSemesterSpecificCourseInstance));
+			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.COURSE_INSTANCE__COURSE, newCourse,
+					newCourse));
 	}
 
 	/**
@@ -219,11 +184,61 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Staff> getStaff() {
-		if (staff == null) {
-			staff = new EObjectResolvingEList<Staff>(Staff.class, this, CourseworkPackage.COURSE_INSTANCE__STAFF);
+	public Timetable getTimetable() {
+		return timetable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimetable(Timetable newTimetable, NotificationChain msgs) {
+		Timetable oldTimetable = timetable;
+		timetable = newTimetable;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CourseworkPackage.COURSE_INSTANCE__TIMETABLE, oldTimetable, newTimetable);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
-		return staff;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimetable(Timetable newTimetable) {
+		if (newTimetable != timetable) {
+			NotificationChain msgs = null;
+			if (timetable != null)
+				msgs = ((InternalEObject) timetable).eInverseRemove(this, CourseworkPackage.TIMETABLE__COURSEINSTANCE,
+						Timetable.class, msgs);
+			if (newTimetable != null)
+				msgs = ((InternalEObject) newTimetable).eInverseAdd(this, CourseworkPackage.TIMETABLE__COURSEINSTANCE,
+						Timetable.class, msgs);
+			msgs = basicSetTimetable(newTimetable, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.COURSE_INSTANCE__TIMETABLE,
+					newTimetable, newTimetable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Role> getRole() {
+		if (role == null) {
+			role = new EObjectResolvingEList<Role>(Role.class, this, CourseworkPackage.COURSE_INSTANCE__ROLE);
+		}
+		return role;
 	}
 
 	/**
@@ -284,10 +299,15 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetSemesterSpecificCourseInstance((Course) otherEnd, msgs);
+			return basicSetCourse((Course) otherEnd, msgs);
+		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
+			if (timetable != null)
+				msgs = ((InternalEObject) timetable).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CourseworkPackage.COURSE_INSTANCE__TIMETABLE, null, msgs);
+			return basicSetTimetable((Timetable) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -300,10 +320,12 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
-			return basicSetSemesterSpecificCourseInstance(null, msgs);
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
+			return basicSetCourse(null, msgs);
 		case CourseworkPackage.COURSE_INSTANCE__EVALUATIONFORM:
 			return basicSetEvaluationform(null, msgs);
+		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
+			return basicSetTimetable(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -316,9 +338,9 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
-			return eInternalContainer().eInverseRemove(this, CourseworkPackage.COURSE__COURSEINSTANCE, Course.class,
-					msgs);
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
+			return eInternalContainer().eInverseRemove(this,
+					CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE, Course.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -333,14 +355,14 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_DATE:
 			return getSemesterDate();
-		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
-			return getTimetable();
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
-			return getSemesterSpecificCourseInstance();
-		case CourseworkPackage.COURSE_INSTANCE__STAFF:
-			return getStaff();
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
+			return getCourse();
 		case CourseworkPackage.COURSE_INSTANCE__EVALUATIONFORM:
 			return getEvaluationform();
+		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
+			return getTimetable();
+		case CourseworkPackage.COURSE_INSTANCE__ROLE:
+			return getRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -357,18 +379,18 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_DATE:
 			setSemesterDate((Date) newValue);
 			return;
-		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
-			setTimetable((String) newValue);
-			return;
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
-			setSemesterSpecificCourseInstance((Course) newValue);
-			return;
-		case CourseworkPackage.COURSE_INSTANCE__STAFF:
-			getStaff().clear();
-			getStaff().addAll((Collection<? extends Staff>) newValue);
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
+			setCourse((Course) newValue);
 			return;
 		case CourseworkPackage.COURSE_INSTANCE__EVALUATIONFORM:
 			setEvaluationform((EvaluationForm) newValue);
+			return;
+		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
+			setTimetable((Timetable) newValue);
+			return;
+		case CourseworkPackage.COURSE_INSTANCE__ROLE:
+			getRole().clear();
+			getRole().addAll((Collection<? extends Role>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -385,17 +407,17 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_DATE:
 			setSemesterDate(SEMESTER_DATE_EDEFAULT);
 			return;
-		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
-			setTimetable(TIMETABLE_EDEFAULT);
-			return;
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
-			setSemesterSpecificCourseInstance((Course) null);
-			return;
-		case CourseworkPackage.COURSE_INSTANCE__STAFF:
-			getStaff().clear();
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
+			setCourse((Course) null);
 			return;
 		case CourseworkPackage.COURSE_INSTANCE__EVALUATIONFORM:
 			setEvaluationform((EvaluationForm) null);
+			return;
+		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
+			setTimetable((Timetable) null);
+			return;
+		case CourseworkPackage.COURSE_INSTANCE__ROLE:
+			getRole().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -411,14 +433,14 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_DATE:
 			return SEMESTER_DATE_EDEFAULT == null ? semesterDate != null : !SEMESTER_DATE_EDEFAULT.equals(semesterDate);
-		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
-			return TIMETABLE_EDEFAULT == null ? timetable != null : !TIMETABLE_EDEFAULT.equals(timetable);
-		case CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
-			return getSemesterSpecificCourseInstance() != null;
-		case CourseworkPackage.COURSE_INSTANCE__STAFF:
-			return staff != null && !staff.isEmpty();
+		case CourseworkPackage.COURSE_INSTANCE__COURSE:
+			return getCourse() != null;
 		case CourseworkPackage.COURSE_INSTANCE__EVALUATIONFORM:
 			return evaluationform != null;
+		case CourseworkPackage.COURSE_INSTANCE__TIMETABLE:
+			return timetable != null;
+		case CourseworkPackage.COURSE_INSTANCE__ROLE:
+			return role != null && !role.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -436,8 +458,6 @@ public class CourseInstanceImpl extends MinimalEObjectImpl.Container implements 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (semesterDate: ");
 		result.append(semesterDate);
-		result.append(", timetable: ");
-		result.append(timetable);
 		result.append(')');
 		return result.toString();
 	}

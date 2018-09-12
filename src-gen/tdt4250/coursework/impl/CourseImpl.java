@@ -15,13 +15,18 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import tdt4250.coursework.Course;
 import tdt4250.coursework.CourseInstance;
 import tdt4250.coursework.CourseworkPackage;
+import tdt4250.coursework.CreditReduction;
+import tdt4250.coursework.Organisation;
+import tdt4250.coursework.StudyProgram;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,8 +41,11 @@ import tdt4250.coursework.CourseworkPackage;
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getContent <em>Content</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getSize <em>Size</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getRecommendedCourse <em>Recommended Course</em>}</li>
- *   <li>{@link tdt4250.coursework.impl.CourseImpl#getCourseinstance <em>Courseinstance</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseImpl#getSemesterSpecificCourseInstance <em>Semester Specific Course Instance</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getRequiredCourse <em>Required Course</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseImpl#getOrganisation <em>Organisation</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseImpl#getCreditreduction <em>Creditreduction</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseImpl#getStudyprogram <em>Studyprogram</em>}</li>
  * </ul>
  *
  * @generated
@@ -134,14 +142,14 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	protected EList<Course> recommendedCourse;
 
 	/**
-	 * The cached value of the '{@link #getCourseinstance() <em>Courseinstance</em>}' containment reference list.
+	 * The cached value of the '{@link #getSemesterSpecificCourseInstance() <em>Semester Specific Course Instance</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCourseinstance()
+	 * @see #getSemesterSpecificCourseInstance()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CourseInstance> courseinstance;
+	protected EList<CourseInstance> semesterSpecificCourseInstance;
 
 	/**
 	 * The cached value of the '{@link #getRequiredCourse() <em>Required Course</em>}' reference list.
@@ -152,6 +160,36 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @ordered
 	 */
 	protected EList<Course> requiredCourse;
+
+	/**
+	 * The cached value of the '{@link #getOrganisation() <em>Organisation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrganisation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Organisation organisation;
+
+	/**
+	 * The cached value of the '{@link #getCreditreduction() <em>Creditreduction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreditreduction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CreditReduction> creditreduction;
+
+	/**
+	 * The cached value of the '{@link #getStudyprogram() <em>Studyprogram</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStudyprogram()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StudyProgram> studyprogram;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,13 +313,13 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CourseInstance> getCourseinstance() {
-		if (courseinstance == null) {
-			courseinstance = new EObjectContainmentWithInverseEList<CourseInstance>(CourseInstance.class, this,
-					CourseworkPackage.COURSE__COURSEINSTANCE,
-					CourseworkPackage.COURSE_INSTANCE__SEMESTER_SPECIFIC_COURSE_INSTANCE);
+	public EList<CourseInstance> getSemesterSpecificCourseInstance() {
+		if (semesterSpecificCourseInstance == null) {
+			semesterSpecificCourseInstance = new EObjectContainmentWithInverseEList<CourseInstance>(
+					CourseInstance.class, this, CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE,
+					CourseworkPackage.COURSE_INSTANCE__COURSE);
 		}
-		return courseinstance;
+		return semesterSpecificCourseInstance;
 	}
 
 	/**
@@ -302,12 +340,114 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Organisation getOrganisation() {
+		if (organisation != null && organisation.eIsProxy()) {
+			InternalEObject oldOrganisation = (InternalEObject) organisation;
+			organisation = (Organisation) eResolveProxy(oldOrganisation);
+			if (organisation != oldOrganisation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CourseworkPackage.COURSE__ORGANISATION,
+							oldOrganisation, organisation));
+			}
+		}
+		return organisation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Organisation basicGetOrganisation() {
+		return organisation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOrganisation(Organisation newOrganisation, NotificationChain msgs) {
+		Organisation oldOrganisation = organisation;
+		organisation = newOrganisation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CourseworkPackage.COURSE__ORGANISATION, oldOrganisation, newOrganisation);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrganisation(Organisation newOrganisation) {
+		if (newOrganisation != organisation) {
+			NotificationChain msgs = null;
+			if (organisation != null)
+				msgs = ((InternalEObject) organisation).eInverseRemove(this, CourseworkPackage.ORGANISATION__COURSE,
+						Organisation.class, msgs);
+			if (newOrganisation != null)
+				msgs = ((InternalEObject) newOrganisation).eInverseAdd(this, CourseworkPackage.ORGANISATION__COURSE,
+						Organisation.class, msgs);
+			msgs = basicSetOrganisation(newOrganisation, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.COURSE__ORGANISATION,
+					newOrganisation, newOrganisation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CreditReduction> getCreditreduction() {
+		if (creditreduction == null) {
+			creditreduction = new EObjectContainmentEList<CreditReduction>(CreditReduction.class, this,
+					CourseworkPackage.COURSE__CREDITREDUCTION);
+		}
+		return creditreduction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<StudyProgram> getStudyprogram() {
+		if (studyprogram == null) {
+			studyprogram = new EObjectWithInverseResolvingEList.ManyInverse<StudyProgram>(StudyProgram.class, this,
+					CourseworkPackage.COURSE__STUDYPROGRAM, CourseworkPackage.STUDY_PROGRAM__COURSE);
+		}
+		return studyprogram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CourseworkPackage.COURSE__COURSEINSTANCE:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCourseinstance()).basicAdd(otherEnd, msgs);
+		case CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getSemesterSpecificCourseInstance())
+					.basicAdd(otherEnd, msgs);
+		case CourseworkPackage.COURSE__ORGANISATION:
+			if (organisation != null)
+				msgs = ((InternalEObject) organisation).eInverseRemove(this, CourseworkPackage.ORGANISATION__COURSE,
+						Organisation.class, msgs);
+			return basicSetOrganisation((Organisation) otherEnd, msgs);
+		case CourseworkPackage.COURSE__STUDYPROGRAM:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getStudyprogram()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -320,8 +460,14 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CourseworkPackage.COURSE__COURSEINSTANCE:
-			return ((InternalEList<?>) getCourseinstance()).basicRemove(otherEnd, msgs);
+		case CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+			return ((InternalEList<?>) getSemesterSpecificCourseInstance()).basicRemove(otherEnd, msgs);
+		case CourseworkPackage.COURSE__ORGANISATION:
+			return basicSetOrganisation(null, msgs);
+		case CourseworkPackage.COURSE__CREDITREDUCTION:
+			return ((InternalEList<?>) getCreditreduction()).basicRemove(otherEnd, msgs);
+		case CourseworkPackage.COURSE__STUDYPROGRAM:
+			return ((InternalEList<?>) getStudyprogram()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -344,10 +490,18 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return getSize();
 		case CourseworkPackage.COURSE__RECOMMENDED_COURSE:
 			return getRecommendedCourse();
-		case CourseworkPackage.COURSE__COURSEINSTANCE:
-			return getCourseinstance();
+		case CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+			return getSemesterSpecificCourseInstance();
 		case CourseworkPackage.COURSE__REQUIRED_COURSE:
 			return getRequiredCourse();
+		case CourseworkPackage.COURSE__ORGANISATION:
+			if (resolve)
+				return getOrganisation();
+			return basicGetOrganisation();
+		case CourseworkPackage.COURSE__CREDITREDUCTION:
+			return getCreditreduction();
+		case CourseworkPackage.COURSE__STUDYPROGRAM:
+			return getStudyprogram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -377,13 +531,24 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			getRecommendedCourse().clear();
 			getRecommendedCourse().addAll((Collection<? extends Course>) newValue);
 			return;
-		case CourseworkPackage.COURSE__COURSEINSTANCE:
-			getCourseinstance().clear();
-			getCourseinstance().addAll((Collection<? extends CourseInstance>) newValue);
+		case CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+			getSemesterSpecificCourseInstance().clear();
+			getSemesterSpecificCourseInstance().addAll((Collection<? extends CourseInstance>) newValue);
 			return;
 		case CourseworkPackage.COURSE__REQUIRED_COURSE:
 			getRequiredCourse().clear();
 			getRequiredCourse().addAll((Collection<? extends Course>) newValue);
+			return;
+		case CourseworkPackage.COURSE__ORGANISATION:
+			setOrganisation((Organisation) newValue);
+			return;
+		case CourseworkPackage.COURSE__CREDITREDUCTION:
+			getCreditreduction().clear();
+			getCreditreduction().addAll((Collection<? extends CreditReduction>) newValue);
+			return;
+		case CourseworkPackage.COURSE__STUDYPROGRAM:
+			getStudyprogram().clear();
+			getStudyprogram().addAll((Collection<? extends StudyProgram>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -412,11 +577,20 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		case CourseworkPackage.COURSE__RECOMMENDED_COURSE:
 			getRecommendedCourse().clear();
 			return;
-		case CourseworkPackage.COURSE__COURSEINSTANCE:
-			getCourseinstance().clear();
+		case CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+			getSemesterSpecificCourseInstance().clear();
 			return;
 		case CourseworkPackage.COURSE__REQUIRED_COURSE:
 			getRequiredCourse().clear();
+			return;
+		case CourseworkPackage.COURSE__ORGANISATION:
+			setOrganisation((Organisation) null);
+			return;
+		case CourseworkPackage.COURSE__CREDITREDUCTION:
+			getCreditreduction().clear();
+			return;
+		case CourseworkPackage.COURSE__STUDYPROGRAM:
+			getStudyprogram().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -440,10 +614,16 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return size != SIZE_EDEFAULT;
 		case CourseworkPackage.COURSE__RECOMMENDED_COURSE:
 			return recommendedCourse != null && !recommendedCourse.isEmpty();
-		case CourseworkPackage.COURSE__COURSEINSTANCE:
-			return courseinstance != null && !courseinstance.isEmpty();
+		case CourseworkPackage.COURSE__SEMESTER_SPECIFIC_COURSE_INSTANCE:
+			return semesterSpecificCourseInstance != null && !semesterSpecificCourseInstance.isEmpty();
 		case CourseworkPackage.COURSE__REQUIRED_COURSE:
 			return requiredCourse != null && !requiredCourse.isEmpty();
+		case CourseworkPackage.COURSE__ORGANISATION:
+			return organisation != null;
+		case CourseworkPackage.COURSE__CREDITREDUCTION:
+			return creditreduction != null && !creditreduction.isEmpty();
+		case CourseworkPackage.COURSE__STUDYPROGRAM:
+			return studyprogram != null && !studyprogram.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

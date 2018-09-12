@@ -93,16 +93,30 @@ public class CourseworkValidator extends EObjectValidator {
 			return validateCourseInstance((CourseInstance) value, diagnostics, context);
 		case CourseworkPackage.ORGANISATION:
 			return validateOrganisation((Organisation) value, diagnostics, context);
-		case CourseworkPackage.STAFF:
-			return validateStaff((Staff) value, diagnostics, context);
+		case CourseworkPackage.PERSON:
+			return validatePerson((Person) value, diagnostics, context);
 		case CourseworkPackage.EVALUATION_FORM:
 			return validateEvaluationForm((EvaluationForm) value, diagnostics, context);
-		case CourseworkPackage.EXAM:
-			return validateExam((Exam) value, diagnostics, context);
-		case CourseworkPackage.ASSIGNMENT:
-			return validateAssignment((Assignment) value, diagnostics, context);
-		case CourseworkPackage.PROJECT:
-			return validateProject((Project) value, diagnostics, context);
+		case CourseworkPackage.TIMETABLE:
+			return validateTimetable((Timetable) value, diagnostics, context);
+		case CourseworkPackage.STUDY_PROGRAM:
+			return validateStudyProgram((StudyProgram) value, diagnostics, context);
+		case CourseworkPackage.TIMETABLE_SLOT:
+			return validateTimetableSlot((TimetableSlot) value, diagnostics, context);
+		case CourseworkPackage.ROOM:
+			return validateRoom((Room) value, diagnostics, context);
+		case CourseworkPackage.EVALUATION:
+			return validateEvaluation((Evaluation) value, diagnostics, context);
+		case CourseworkPackage.ROLE:
+			return validateRole((Role) value, diagnostics, context);
+		case CourseworkPackage.CREDIT_REDUCTION:
+			return validateCreditReduction((CreditReduction) value, diagnostics, context);
+		case CourseworkPackage.EVALUATION_KINDS:
+			return validateEvaluationKinds((EvaluationKinds) value, diagnostics, context);
+		case CourseworkPackage.TIMETABLE_SLOT_KINDS:
+			return validateTimetableSlotKinds((TimetableSlotKinds) value, diagnostics, context);
+		case CourseworkPackage.ROLE_KINDS:
+			return validateRoleKinds((RoleKinds) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -150,7 +164,7 @@ public class CourseworkValidator extends EObjectValidator {
 	 * Validates the hasCourseCoordinator constraint of '<em>Course Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateCourseInstance_hasCourseCoordinator(CourseInstance courseInstance,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -158,7 +172,11 @@ public class CourseworkValidator extends EObjectValidator {
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		boolean bool = false;
+		for (Role role : courseInstance.getRole()) {
+			bool = bool || role.getRoleKind() == RoleKinds.getByName("CourseCoordinator");
+		}
+		if (!bool) {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
@@ -185,8 +203,8 @@ public class CourseworkValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStaff(Staff staff, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(staff, diagnostics, context);
+	public boolean validatePerson(Person person, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(person, diagnostics, context);
 	}
 
 	/**
@@ -222,7 +240,7 @@ public class CourseworkValidator extends EObjectValidator {
 	 * Validates the totalPercentageEqualsOneHundred constraint of '<em>Evaluation Form</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateEvaluationForm_totalPercentageEqualsOneHundred(EvaluationForm evaluationForm,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -230,18 +248,11 @@ public class CourseworkValidator extends EObjectValidator {
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		float totalpercentage = 0;
-		if (evaluationForm.getExam() != null) {totalpercentage += evaluationForm.getExam().getPercentage();};
-		
-		
-		for (Project proj:evaluationForm.getProject()) {
-			totalpercentage += proj.getPercentage();
+		float totalperc = 0;
+		for (Evaluation eval : evaluationForm.getEvaluation()) {
+			totalperc += eval.getTotalPercentage();
 		}
-		for (Assignment ass:evaluationForm.getAssignment()) {
-			totalpercentage += ass.getPercentage();
-		}
-		
-		if (totalpercentage != 1) {
+		if (totalperc != 1) {
 			if (diagnostics != null) {
 				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
 						"_UI_GenericConstraint_diagnostic",
@@ -258,8 +269,71 @@ public class CourseworkValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateExam(Exam exam, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(exam, diagnostics, context);
+	public boolean validateTimetable(Timetable timetable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(timetable, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(timetable, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateTimetable_maximumScheduledHours(timetable, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the maximumScheduledHours constraint of '<em>Timetable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateTimetable_maximumScheduledHours(Timetable timetable, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		boolean bool = true;
+		for (StudyProgram program : timetable.getCourseinstance().getCourse().getStudyprogram()) {
+			float nbLect = timetable.getLectureHours();
+			float nbLab = timetable.getLabHours();
+			for (Course course: program.getCourse()) {
+				if (course.equals(timetable.getCourseinstance().getCourse())){
+					nbLect = timetable.getLectureHours();
+					nbLab = timetable.getLabHours();
+					for (TimetableSlot slot : timetable.getLecture()) {
+						if (slot.getTimetableSlotKind() == TimetableSlotKinds.getByName("Lecture") && slot.getStudyprogram().contains(program)) {
+							nbLect -= slot.getDuration();
+						}else if (slot.getTimetableSlotKind() == TimetableSlotKinds.getByName("Lab")&& slot.getStudyprogram().contains(program)) {
+							nbLab -= slot.getDuration();
+						}
+					}
+				}
+			}
+			bool = (bool && nbLect == 0 && nbLab == 0);
+		}
+
+			if (!bool) {
+				if (diagnostics != null) {
+					diagnostics.add(
+							createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+									new Object[] { "maximumScheduledHours", getObjectLabel(timetable, context) },
+									new Object[] { timetable }, context));
+				}
+				return false;
+			}
+		return true;
 	}
 
 	/**
@@ -267,8 +341,9 @@ public class CourseworkValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAssignment(Assignment assignment, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(assignment, diagnostics, context);
+	public boolean validateStudyProgram(StudyProgram studyProgram, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(studyProgram, diagnostics, context);
 	}
 
 	/**
@@ -276,8 +351,75 @@ public class CourseworkValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProject(Project project, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(project, diagnostics, context);
+	public boolean validateTimetableSlot(TimetableSlot timetableSlot, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(timetableSlot, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRoom(Room room, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(room, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEvaluation(Evaluation evaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(evaluation, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRole(Role role, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(role, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCreditReduction(CreditReduction creditReduction, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(creditReduction, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEvaluationKinds(EvaluationKinds evaluationKinds, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTimetableSlotKinds(TimetableSlotKinds timetableSlotKinds, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRoleKinds(RoleKinds roleKinds, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**
