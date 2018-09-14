@@ -35,6 +35,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Course/organisation"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Course/creditreduction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Course/studyprogram"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coursework.ecore#//Course/University"/>
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//CourseInstance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//CourseInstance/semesterDate"/>
@@ -47,6 +48,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Organisation/departmentName"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Organisation/staff"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//Organisation/course"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coursework.ecore#//Organisation/University"/>
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Person/name"/>
@@ -64,6 +66,8 @@
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//StudyProgram">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//StudyProgram/course"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coursework.ecore#//StudyProgram/University"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//StudyProgram/name"/>
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//TimetableSlot">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//TimetableSlot/room"/>
@@ -72,7 +76,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//TimetableSlot/duration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//TimetableSlot/date"/>
     </genClasses>
-    <genClasses ecoreClass="coursework.ecore#//Room"/>
+    <genClasses ecoreClass="coursework.ecore#//Room">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference coursework.ecore#//Room/University"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Room/name"/>
+    </genClasses>
     <genClasses ecoreClass="coursework.ecore#//Evaluation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Evaluation/evaluationKind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//Evaluation/totalPercentage"/>
@@ -82,6 +89,14 @@
     </genClasses>
     <genClasses ecoreClass="coursework.ecore#//CreditReduction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference coursework.ecore#//CreditReduction/course"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//CreditReduction/reductionValue"/>
+    </genClasses>
+    <genClasses ecoreClass="coursework.ecore#//University">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coursework.ecore#//University/Room"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coursework.ecore#//University/Course"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coursework.ecore#//University/Organisation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference coursework.ecore#//University/StudyProgram"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute coursework.ecore#//University/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

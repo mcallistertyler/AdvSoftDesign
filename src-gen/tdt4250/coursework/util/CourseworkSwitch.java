@@ -150,6 +150,13 @@ public class CourseworkSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case CourseworkPackage.UNIVERSITY: {
+			University university = (University) theEObject;
+			T result = caseUniversity(university);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -332,6 +339,21 @@ public class CourseworkSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCreditReduction(CreditReduction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>University</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>University</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUniversity(University object) {
 		return null;
 	}
 

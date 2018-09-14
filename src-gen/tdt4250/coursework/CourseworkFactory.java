@@ -130,6 +130,15 @@ public interface CourseworkFactory extends EFactory {
 	CreditReduction createCreditReduction();
 
 	/**
+	 * Returns a new object of class '<em>University</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>University</em>'.
+	 * @generated
+	 */
+	University createUniversity();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

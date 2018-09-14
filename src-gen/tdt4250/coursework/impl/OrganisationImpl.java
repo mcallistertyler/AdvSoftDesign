@@ -17,12 +17,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import tdt4250.coursework.Course;
 import tdt4250.coursework.CourseworkPackage;
 import tdt4250.coursework.Organisation;
 import tdt4250.coursework.Person;
+import tdt4250.coursework.University;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,7 @@ import tdt4250.coursework.Person;
  *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getDepartmentName <em>Department Name</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getStaff <em>Staff</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getCourse <em>Course</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.OrganisationImpl#getUniversity <em>University</em>}</li>
  * </ul>
  *
  * @generated
@@ -152,6 +155,51 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public University getUniversity() {
+		if (eContainerFeatureID() != CourseworkPackage.ORGANISATION__UNIVERSITY)
+			return null;
+		return (University) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUniversity(University newUniversity, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newUniversity, CourseworkPackage.ORGANISATION__UNIVERSITY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUniversity(University newUniversity) {
+		if (newUniversity != eInternalContainer()
+				|| (eContainerFeatureID() != CourseworkPackage.ORGANISATION__UNIVERSITY && newUniversity != null)) {
+			if (EcoreUtil.isAncestor(this, newUniversity))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newUniversity != null)
+				msgs = ((InternalEObject) newUniversity).eInverseAdd(this, CourseworkPackage.UNIVERSITY__ORGANISATION,
+						University.class, msgs);
+			msgs = basicSetUniversity(newUniversity, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.ORGANISATION__UNIVERSITY,
+					newUniversity, newUniversity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -160,6 +208,10 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getStaff()).basicAdd(otherEnd, msgs);
 		case CourseworkPackage.ORGANISATION__COURSE:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getCourse()).basicAdd(otherEnd, msgs);
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetUniversity((University) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -176,8 +228,25 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			return ((InternalEList<?>) getStaff()).basicRemove(otherEnd, msgs);
 		case CourseworkPackage.ORGANISATION__COURSE:
 			return ((InternalEList<?>) getCourse()).basicRemove(otherEnd, msgs);
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			return basicSetUniversity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			return eInternalContainer().eInverseRemove(this, CourseworkPackage.UNIVERSITY__ORGANISATION,
+					University.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -194,6 +263,8 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			return getStaff();
 		case CourseworkPackage.ORGANISATION__COURSE:
 			return getCourse();
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			return getUniversity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +289,9 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			getCourse().clear();
 			getCourse().addAll((Collection<? extends Course>) newValue);
 			return;
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			setUniversity((University) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -239,6 +313,9 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 		case CourseworkPackage.ORGANISATION__COURSE:
 			getCourse().clear();
 			return;
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			setUniversity((University) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -258,6 +335,8 @@ public class OrganisationImpl extends MinimalEObjectImpl.Container implements Or
 			return staff != null && !staff.isEmpty();
 		case CourseworkPackage.ORGANISATION__COURSE:
 			return course != null && !course.isEmpty();
+		case CourseworkPackage.ORGANISATION__UNIVERSITY:
+			return getUniversity() != null;
 		}
 		return super.eIsSet(featureID);
 	}

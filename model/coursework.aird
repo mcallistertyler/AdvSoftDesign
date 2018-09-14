@@ -3,8 +3,7 @@
   <viewpoint:DAnalysis xmi:id="_Z9gB0LOCEeiQqp-4jatezQ" selectedViews="_cJbt4LOCEeiQqp-4jatezQ" version="13.0.0.201804031646">
     <semanticResources>coursework.ecore</semanticResources>
     <semanticResources>coursework.genmodel</semanticResources>
-    <semanticResources>TDT4250.xmi</semanticResources>
-    <semanticResources>K5.xmi</semanticResources>
+    <semanticResources>NTNU.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_cJbt4LOCEeiQqp-4jatezQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_ckOMcLOCEeiQqp-4jatezQ" name="coursework" repPath="#_cSI98LOCEeiQqp-4jatezQ">

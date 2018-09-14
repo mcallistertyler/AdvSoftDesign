@@ -19,6 +19,8 @@
         eType="#//CreditReduction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="studyprogram" upperBound="-1"
         eType="#//StudyProgram" eOpposite="#//StudyProgram/course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="University" lowerBound="1"
+        eType="#//University" eOpposite="#//University/Course"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CourseInstance">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -40,6 +42,8 @@
         eType="#//Person" containment="true" eOpposite="#//Person/worksIn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" upperBound="-1"
         eType="#//Course" eOpposite="#//Course/organisation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="University" lowerBound="1"
+        eType="#//University" eOpposite="#//University/Organisation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -69,17 +73,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="StudyProgram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" lowerBound="1"
         upperBound="-1" eType="#//Course" eOpposite="#//Course/studyprogram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="University" lowerBound="1"
+        eType="#//University" eOpposite="#//University/StudyProgram"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TimetableSlot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="room" lowerBound="1" eType="#//Room"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="studyprogram" lowerBound="1"
-        upperBound="-1" eType="#//StudyProgram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="studyprogram" upperBound="-1"
+        eType="#//StudyProgram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimetableSlotKind" lowerBound="1"
         eType="#//TimetableSlotKinds"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Room"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Room">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="University" lowerBound="1"
+        eType="#//University" eOpposite="#//University/Room"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Evaluation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluationKind" lowerBound="1"
         eType="#//EvaluationKinds"/>
@@ -106,5 +117,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="CreditReduction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="course" lowerBound="1"
         eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reductionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="University">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Room" lowerBound="1" upperBound="-1"
+        eType="#//Room" containment="true" eOpposite="#//Room/University"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Course" lowerBound="1"
+        upperBound="-1" eType="#//Course" containment="true" eOpposite="#//Course/University"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Organisation" lowerBound="1"
+        upperBound="-1" eType="#//Organisation" containment="true" eOpposite="#//Organisation/University"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StudyProgram" lowerBound="1"
+        upperBound="-1" eType="#//StudyProgram" containment="true" eOpposite="#//StudyProgram/University"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

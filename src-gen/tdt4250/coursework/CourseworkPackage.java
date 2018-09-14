@@ -158,13 +158,22 @@ public interface CourseworkPackage extends EPackage {
 	int COURSE__STUDYPROGRAM = 9;
 
 	/**
+	 * The feature id for the '<em><b>University</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE__UNIVERSITY = 10;
+
+	/**
 	 * The number of structural features of the '<em>Course</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_FEATURE_COUNT = 10;
+	int COURSE_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>Course</em>' class.
@@ -286,13 +295,22 @@ public interface CourseworkPackage extends EPackage {
 	int ORGANISATION__COURSE = 2;
 
 	/**
+	 * The feature id for the '<em><b>University</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANISATION__UNIVERSITY = 3;
+
+	/**
 	 * The number of structural features of the '<em>Organisation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANISATION_FEATURE_COUNT = 3;
+	int ORGANISATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Organisation</em>' class.
@@ -479,13 +497,31 @@ public interface CourseworkPackage extends EPackage {
 	int STUDY_PROGRAM__COURSE = 0;
 
 	/**
+	 * The feature id for the '<em><b>University</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PROGRAM__UNIVERSITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PROGRAM__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Study Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PROGRAM_FEATURE_COUNT = 1;
+	int STUDY_PROGRAM_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Study Program</em>' class.
@@ -580,13 +616,31 @@ public interface CourseworkPackage extends EPackage {
 	int ROOM = 8;
 
 	/**
+	 * The feature id for the '<em><b>University</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM__UNIVERSITY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Room</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_FEATURE_COUNT = 0;
+	int ROOM_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Room</em>' class.
@@ -700,13 +754,22 @@ public interface CourseworkPackage extends EPackage {
 	int CREDIT_REDUCTION__COURSE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Reduction Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREDIT_REDUCTION__REDUCTION_VALUE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Credit Reduction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREDIT_REDUCTION_FEATURE_COUNT = 1;
+	int CREDIT_REDUCTION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Credit Reduction</em>' class.
@@ -718,6 +781,79 @@ public interface CourseworkPackage extends EPackage {
 	int CREDIT_REDUCTION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link tdt4250.coursework.impl.UniversityImpl <em>University</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tdt4250.coursework.impl.UniversityImpl
+	 * @see tdt4250.coursework.impl.CourseworkPackageImpl#getUniversity()
+	 * @generated
+	 */
+	int UNIVERSITY = 12;
+
+	/**
+	 * The feature id for the '<em><b>Room</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__ROOM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Course</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__COURSE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Organisation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__ORGANISATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Study Program</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__STUDY_PROGRAM = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY__NAME = 4;
+
+	/**
+	 * The number of structural features of the '<em>University</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>University</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIVERSITY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link tdt4250.coursework.EvaluationKinds <em>Evaluation Kinds</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,7 +861,7 @@ public interface CourseworkPackage extends EPackage {
 	 * @see tdt4250.coursework.impl.CourseworkPackageImpl#getEvaluationKinds()
 	 * @generated
 	 */
-	int EVALUATION_KINDS = 12;
+	int EVALUATION_KINDS = 13;
 
 	/**
 	 * The meta object id for the '{@link tdt4250.coursework.TimetableSlotKinds <em>Timetable Slot Kinds</em>}' enum.
@@ -735,7 +871,7 @@ public interface CourseworkPackage extends EPackage {
 	 * @see tdt4250.coursework.impl.CourseworkPackageImpl#getTimetableSlotKinds()
 	 * @generated
 	 */
-	int TIMETABLE_SLOT_KINDS = 13;
+	int TIMETABLE_SLOT_KINDS = 14;
 
 	/**
 	 * The meta object id for the '{@link tdt4250.coursework.RoleKinds <em>Role Kinds</em>}' enum.
@@ -745,7 +881,7 @@ public interface CourseworkPackage extends EPackage {
 	 * @see tdt4250.coursework.impl.CourseworkPackageImpl#getRoleKinds()
 	 * @generated
 	 */
-	int ROLE_KINDS = 14;
+	int ROLE_KINDS = 15;
 
 	/**
 	 * Returns the meta object for class '{@link tdt4250.coursework.Course <em>Course</em>}'.
@@ -868,6 +1004,17 @@ public interface CourseworkPackage extends EPackage {
 	EReference getCourse_Studyprogram();
 
 	/**
+	 * Returns the meta object for the container reference '{@link tdt4250.coursework.Course#getUniversity <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>University</em>'.
+	 * @see tdt4250.coursework.Course#getUniversity()
+	 * @see #getCourse()
+	 * @generated
+	 */
+	EReference getCourse_University();
+
+	/**
 	 * Returns the meta object for class '{@link tdt4250.coursework.CourseInstance <em>Course Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -974,6 +1121,17 @@ public interface CourseworkPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOrganisation_Course();
+
+	/**
+	 * Returns the meta object for the container reference '{@link tdt4250.coursework.Organisation#getUniversity <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>University</em>'.
+	 * @see tdt4250.coursework.Organisation#getUniversity()
+	 * @see #getOrganisation()
+	 * @generated
+	 */
+	EReference getOrganisation_University();
 
 	/**
 	 * Returns the meta object for class '{@link tdt4250.coursework.Person <em>Person</em>}'.
@@ -1115,6 +1273,28 @@ public interface CourseworkPackage extends EPackage {
 	EReference getStudyProgram_Course();
 
 	/**
+	 * Returns the meta object for the container reference '{@link tdt4250.coursework.StudyProgram#getUniversity <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>University</em>'.
+	 * @see tdt4250.coursework.StudyProgram#getUniversity()
+	 * @see #getStudyProgram()
+	 * @generated
+	 */
+	EReference getStudyProgram_University();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.coursework.StudyProgram#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see tdt4250.coursework.StudyProgram#getName()
+	 * @see #getStudyProgram()
+	 * @generated
+	 */
+	EAttribute getStudyProgram_Name();
+
+	/**
 	 * Returns the meta object for class '{@link tdt4250.coursework.TimetableSlot <em>Timetable Slot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1190,6 +1370,28 @@ public interface CourseworkPackage extends EPackage {
 	EClass getRoom();
 
 	/**
+	 * Returns the meta object for the container reference '{@link tdt4250.coursework.Room#getUniversity <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>University</em>'.
+	 * @see tdt4250.coursework.Room#getUniversity()
+	 * @see #getRoom()
+	 * @generated
+	 */
+	EReference getRoom_University();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.coursework.Room#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see tdt4250.coursework.Room#getName()
+	 * @see #getRoom()
+	 * @generated
+	 */
+	EAttribute getRoom_Name();
+
+	/**
 	 * Returns the meta object for class '{@link tdt4250.coursework.Evaluation <em>Evaluation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1262,6 +1464,82 @@ public interface CourseworkPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCreditReduction_Course();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.coursework.CreditReduction#getReductionValue <em>Reduction Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reduction Value</em>'.
+	 * @see tdt4250.coursework.CreditReduction#getReductionValue()
+	 * @see #getCreditReduction()
+	 * @generated
+	 */
+	EAttribute getCreditReduction_ReductionValue();
+
+	/**
+	 * Returns the meta object for class '{@link tdt4250.coursework.University <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>University</em>'.
+	 * @see tdt4250.coursework.University
+	 * @generated
+	 */
+	EClass getUniversity();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tdt4250.coursework.University#getRoom <em>Room</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Room</em>'.
+	 * @see tdt4250.coursework.University#getRoom()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EReference getUniversity_Room();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tdt4250.coursework.University#getCourse <em>Course</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Course</em>'.
+	 * @see tdt4250.coursework.University#getCourse()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EReference getUniversity_Course();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tdt4250.coursework.University#getOrganisation <em>Organisation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Organisation</em>'.
+	 * @see tdt4250.coursework.University#getOrganisation()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EReference getUniversity_Organisation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tdt4250.coursework.University#getStudyProgram <em>Study Program</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Study Program</em>'.
+	 * @see tdt4250.coursework.University#getStudyProgram()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EReference getUniversity_StudyProgram();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.coursework.University#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see tdt4250.coursework.University#getName()
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	EAttribute getUniversity_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link tdt4250.coursework.EvaluationKinds <em>Evaluation Kinds</em>}'.
@@ -1407,6 +1685,14 @@ public interface CourseworkPackage extends EPackage {
 		EReference COURSE__STUDYPROGRAM = eINSTANCE.getCourse_Studyprogram();
 
 		/**
+		 * The meta object literal for the '<em><b>University</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COURSE__UNIVERSITY = eINSTANCE.getCourse_University();
+
+		/**
 		 * The meta object literal for the '{@link tdt4250.coursework.impl.CourseInstanceImpl <em>Course Instance</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1489,6 +1775,14 @@ public interface CourseworkPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ORGANISATION__COURSE = eINSTANCE.getOrganisation_Course();
+
+		/**
+		 * The meta object literal for the '<em><b>University</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANISATION__UNIVERSITY = eINSTANCE.getOrganisation_University();
 
 		/**
 		 * The meta object literal for the '{@link tdt4250.coursework.impl.PersonImpl <em>Person</em>}' class.
@@ -1603,6 +1897,22 @@ public interface CourseworkPackage extends EPackage {
 		EReference STUDY_PROGRAM__COURSE = eINSTANCE.getStudyProgram_Course();
 
 		/**
+		 * The meta object literal for the '<em><b>University</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDY_PROGRAM__UNIVERSITY = eINSTANCE.getStudyProgram_University();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDY_PROGRAM__NAME = eINSTANCE.getStudyProgram_Name();
+
+		/**
 		 * The meta object literal for the '{@link tdt4250.coursework.impl.TimetableSlotImpl <em>Timetable Slot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1661,6 +1971,22 @@ public interface CourseworkPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ROOM = eINSTANCE.getRoom();
+
+		/**
+		 * The meta object literal for the '<em><b>University</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM__UNIVERSITY = eINSTANCE.getRoom_University();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM__NAME = eINSTANCE.getRoom_Name();
 
 		/**
 		 * The meta object literal for the '{@link tdt4250.coursework.impl.EvaluationImpl <em>Evaluation</em>}' class.
@@ -1723,6 +2049,64 @@ public interface CourseworkPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CREDIT_REDUCTION__COURSE = eINSTANCE.getCreditReduction_Course();
+
+		/**
+		 * The meta object literal for the '<em><b>Reduction Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CREDIT_REDUCTION__REDUCTION_VALUE = eINSTANCE.getCreditReduction_ReductionValue();
+
+		/**
+		 * The meta object literal for the '{@link tdt4250.coursework.impl.UniversityImpl <em>University</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tdt4250.coursework.impl.UniversityImpl
+		 * @see tdt4250.coursework.impl.CourseworkPackageImpl#getUniversity()
+		 * @generated
+		 */
+		EClass UNIVERSITY = eINSTANCE.getUniversity();
+
+		/**
+		 * The meta object literal for the '<em><b>Room</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIVERSITY__ROOM = eINSTANCE.getUniversity_Room();
+
+		/**
+		 * The meta object literal for the '<em><b>Course</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIVERSITY__COURSE = eINSTANCE.getUniversity_Course();
+
+		/**
+		 * The meta object literal for the '<em><b>Organisation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIVERSITY__ORGANISATION = eINSTANCE.getUniversity_Organisation();
+
+		/**
+		 * The meta object literal for the '<em><b>Study Program</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIVERSITY__STUDY_PROGRAM = eINSTANCE.getUniversity_StudyProgram();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIVERSITY__NAME = eINSTANCE.getUniversity_Name();
 
 		/**
 		 * The meta object literal for the '{@link tdt4250.coursework.EvaluationKinds <em>Evaluation Kinds</em>}' enum.

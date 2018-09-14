@@ -81,6 +81,8 @@ public class CourseworkFactoryImpl extends EFactoryImpl implements CourseworkFac
 			return createRole();
 		case CourseworkPackage.CREDIT_REDUCTION:
 			return createCreditReduction();
+		case CourseworkPackage.UNIVERSITY:
+			return createUniversity();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -242,6 +244,16 @@ public class CourseworkFactoryImpl extends EFactoryImpl implements CourseworkFac
 	public CreditReduction createCreditReduction() {
 		CreditReductionImpl creditReduction = new CreditReductionImpl();
 		return creditReduction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public University createUniversity() {
+		UniversityImpl university = new UniversityImpl();
+		return university;
 	}
 
 	/**

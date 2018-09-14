@@ -27,6 +27,7 @@ import tdt4250.coursework.StudyProgram;
 import tdt4250.coursework.Timetable;
 import tdt4250.coursework.TimetableSlot;
 import tdt4250.coursework.TimetableSlotKinds;
+import tdt4250.coursework.University;
 import tdt4250.coursework.util.CourseworkValidator;
 
 /**
@@ -119,6 +120,13 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * @generated
 	 */
 	private EClass creditReductionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass universityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,6 +324,15 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCourse_University() {
+		return (EReference) courseEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCourseInstance() {
 		return courseInstanceEClass;
 	}
@@ -399,6 +416,15 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 */
 	public EReference getOrganisation_Course() {
 		return (EReference) organisationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOrganisation_University() {
+		return (EReference) organisationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -523,6 +549,24 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStudyProgram_University() {
+		return (EReference) studyProgramEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStudyProgram_Name() {
+		return (EAttribute) studyProgramEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTimetableSlot() {
 		return timetableSlotEClass;
 	}
@@ -579,6 +623,24 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 */
 	public EClass getRoom() {
 		return roomEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoom_University() {
+		return (EReference) roomEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRoom_Name() {
+		return (EAttribute) roomEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -649,6 +711,69 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCreditReduction_ReductionValue() {
+		return (EAttribute) creditReductionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUniversity() {
+		return universityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUniversity_Room() {
+		return (EReference) universityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUniversity_Course() {
+		return (EReference) universityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUniversity_Organisation() {
+		return (EReference) universityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUniversity_StudyProgram() {
+		return (EReference) universityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUniversity_Name() {
+		return (EAttribute) universityEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationKinds() {
 		return evaluationKindsEEnum;
 	}
@@ -711,6 +836,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		createEReference(courseEClass, COURSE__ORGANISATION);
 		createEReference(courseEClass, COURSE__CREDITREDUCTION);
 		createEReference(courseEClass, COURSE__STUDYPROGRAM);
+		createEReference(courseEClass, COURSE__UNIVERSITY);
 
 		courseInstanceEClass = createEClass(COURSE_INSTANCE);
 		createEAttribute(courseInstanceEClass, COURSE_INSTANCE__SEMESTER_DATE);
@@ -723,6 +849,7 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		createEAttribute(organisationEClass, ORGANISATION__DEPARTMENT_NAME);
 		createEReference(organisationEClass, ORGANISATION__STAFF);
 		createEReference(organisationEClass, ORGANISATION__COURSE);
+		createEReference(organisationEClass, ORGANISATION__UNIVERSITY);
 
 		personEClass = createEClass(PERSON);
 		createEAttribute(personEClass, PERSON__NAME);
@@ -740,6 +867,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 
 		studyProgramEClass = createEClass(STUDY_PROGRAM);
 		createEReference(studyProgramEClass, STUDY_PROGRAM__COURSE);
+		createEReference(studyProgramEClass, STUDY_PROGRAM__UNIVERSITY);
+		createEAttribute(studyProgramEClass, STUDY_PROGRAM__NAME);
 
 		timetableSlotEClass = createEClass(TIMETABLE_SLOT);
 		createEReference(timetableSlotEClass, TIMETABLE_SLOT__ROOM);
@@ -749,6 +878,8 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		createEAttribute(timetableSlotEClass, TIMETABLE_SLOT__DATE);
 
 		roomEClass = createEClass(ROOM);
+		createEReference(roomEClass, ROOM__UNIVERSITY);
+		createEAttribute(roomEClass, ROOM__NAME);
 
 		evaluationEClass = createEClass(EVALUATION);
 		createEAttribute(evaluationEClass, EVALUATION__EVALUATION_KIND);
@@ -759,6 +890,14 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 
 		creditReductionEClass = createEClass(CREDIT_REDUCTION);
 		createEReference(creditReductionEClass, CREDIT_REDUCTION__COURSE);
+		createEAttribute(creditReductionEClass, CREDIT_REDUCTION__REDUCTION_VALUE);
+
+		universityEClass = createEClass(UNIVERSITY);
+		createEReference(universityEClass, UNIVERSITY__ROOM);
+		createEReference(universityEClass, UNIVERSITY__COURSE);
+		createEReference(universityEClass, UNIVERSITY__ORGANISATION);
+		createEReference(universityEClass, UNIVERSITY__STUDY_PROGRAM);
+		createEAttribute(universityEClass, UNIVERSITY__NAME);
 
 		// Create enums
 		evaluationKindsEEnum = createEEnum(EVALUATION_KINDS);
@@ -825,6 +964,9 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEReference(getCourse_Studyprogram(), this.getStudyProgram(), this.getStudyProgram_Course(), "studyprogram",
 				null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourse_University(), this.getUniversity(), this.getUniversity_Course(), "University", null, 1,
+				1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseInstanceEClass, CourseInstance.class, "CourseInstance", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -855,6 +997,9 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEReference(getOrganisation_Course(), this.getCourse(), this.getCourse_Organisation(), "course", null, 0, -1,
 				Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganisation_University(), this.getUniversity(), this.getUniversity_Organisation(),
+				"University", null, 1, 1, Organisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPerson_Name(), ecorePackage.getEString(), "name", null, 0, 1, Person.class, !IS_TRANSIENT,
@@ -891,13 +1036,18 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEReference(getStudyProgram_Course(), this.getCourse(), this.getCourse_Studyprogram(), "course", null, 1, -1,
 				StudyProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStudyProgram_University(), this.getUniversity(), this.getUniversity_StudyProgram(),
+				"University", null, 1, 1, StudyProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudyProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, StudyProgram.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timetableSlotEClass, TimetableSlot.class, "TimetableSlot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTimetableSlot_Room(), this.getRoom(), null, "room", null, 1, 1, TimetableSlot.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimetableSlot_Studyprogram(), this.getStudyProgram(), null, "studyprogram", null, 1, -1,
+		initEReference(getTimetableSlot_Studyprogram(), this.getStudyProgram(), null, "studyprogram", null, 0, -1,
 				TimetableSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimetableSlot_TimetableSlotKind(), this.getTimetableSlotKinds(), "TimetableSlotKind", null, 1,
@@ -910,6 +1060,11 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRoom_University(), this.getUniversity(), this.getUniversity_Room(), "University", null, 1, 1,
+				Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Room.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evaluationEClass, Evaluation.class, "Evaluation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -929,6 +1084,26 @@ public class CourseworkPackageImpl extends EPackageImpl implements CourseworkPac
 		initEReference(getCreditReduction_Course(), this.getCourse(), null, "course", null, 1, 1, CreditReduction.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreditReduction_ReductionValue(), ecorePackage.getEFloat(), "reductionValue", null, 0, 1,
+				CreditReduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(universityEClass, University.class, "University", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUniversity_Room(), this.getRoom(), this.getRoom_University(), "Room", null, 1, -1,
+				University.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUniversity_Course(), this.getCourse(), this.getCourse_University(), "Course", null, 1, -1,
+				University.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUniversity_Organisation(), this.getOrganisation(), this.getOrganisation_University(),
+				"Organisation", null, 1, -1, University.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUniversity_StudyProgram(), this.getStudyProgram(), this.getStudyProgram_University(),
+				"StudyProgram", null, 1, -1, University.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUniversity_Name(), ecorePackage.getEString(), "name", null, 0, 1, University.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationKindsEEnum, EvaluationKinds.class, "EvaluationKinds");

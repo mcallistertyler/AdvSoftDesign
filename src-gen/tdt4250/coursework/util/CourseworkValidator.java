@@ -111,6 +111,8 @@ public class CourseworkValidator extends EObjectValidator {
 			return validateRole((Role) value, diagnostics, context);
 		case CourseworkPackage.CREDIT_REDUCTION:
 			return validateCreditReduction((CreditReduction) value, diagnostics, context);
+		case CourseworkPackage.UNIVERSITY:
+			return validateUniversity((University) value, diagnostics, context);
 		case CourseworkPackage.EVALUATION_KINDS:
 			return validateEvaluationKinds((EvaluationKinds) value, diagnostics, context);
 		case CourseworkPackage.TIMETABLE_SLOT_KINDS:
@@ -176,7 +178,7 @@ public class CourseworkValidator extends EObjectValidator {
 		for (Role role : courseInstance.getRole()) {
 			bool = bool || role.getRoleKind() == RoleKinds.getByName("CourseCoordinator");
 		}
-		if (!bool) {
+		if (bool) {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
@@ -393,6 +395,15 @@ public class CourseworkValidator extends EObjectValidator {
 	public boolean validateCreditReduction(CreditReduction creditReduction, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(creditReduction, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateUniversity(University university, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(university, diagnostics, context);
 	}
 
 	/**

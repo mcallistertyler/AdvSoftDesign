@@ -127,6 +127,11 @@ public class CourseworkAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseUniversity(University object) {
+			return createUniversityAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -310,6 +315,20 @@ public class CourseworkAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCreditReductionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tdt4250.coursework.University <em>University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tdt4250.coursework.University
+	 * @generated
+	 */
+	public Adapter createUniversityAdapter() {
 		return null;
 	}
 

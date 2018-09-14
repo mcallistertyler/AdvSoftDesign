@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import tdt4250.coursework.Course;
@@ -27,6 +28,7 @@ import tdt4250.coursework.CourseworkPackage;
 import tdt4250.coursework.CreditReduction;
 import tdt4250.coursework.Organisation;
 import tdt4250.coursework.StudyProgram;
+import tdt4250.coursework.University;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +48,7 @@ import tdt4250.coursework.StudyProgram;
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getOrganisation <em>Organisation</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getCreditreduction <em>Creditreduction</em>}</li>
  *   <li>{@link tdt4250.coursework.impl.CourseImpl#getStudyprogram <em>Studyprogram</em>}</li>
+ *   <li>{@link tdt4250.coursework.impl.CourseImpl#getUniversity <em>University</em>}</li>
  * </ul>
  *
  * @generated
@@ -434,6 +437,51 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public University getUniversity() {
+		if (eContainerFeatureID() != CourseworkPackage.COURSE__UNIVERSITY)
+			return null;
+		return (University) eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUniversity(University newUniversity, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newUniversity, CourseworkPackage.COURSE__UNIVERSITY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUniversity(University newUniversity) {
+		if (newUniversity != eInternalContainer()
+				|| (eContainerFeatureID() != CourseworkPackage.COURSE__UNIVERSITY && newUniversity != null)) {
+			if (EcoreUtil.isAncestor(this, newUniversity))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newUniversity != null)
+				msgs = ((InternalEObject) newUniversity).eInverseAdd(this, CourseworkPackage.UNIVERSITY__COURSE,
+						University.class, msgs);
+			msgs = basicSetUniversity(newUniversity, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CourseworkPackage.COURSE__UNIVERSITY, newUniversity,
+					newUniversity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -448,6 +496,10 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return basicSetOrganisation((Organisation) otherEnd, msgs);
 		case CourseworkPackage.COURSE__STUDYPROGRAM:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getStudyprogram()).basicAdd(otherEnd, msgs);
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			return basicSetUniversity((University) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -468,8 +520,25 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return ((InternalEList<?>) getCreditreduction()).basicRemove(otherEnd, msgs);
 		case CourseworkPackage.COURSE__STUDYPROGRAM:
 			return ((InternalEList<?>) getStudyprogram()).basicRemove(otherEnd, msgs);
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			return basicSetUniversity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			return eInternalContainer().eInverseRemove(this, CourseworkPackage.UNIVERSITY__COURSE, University.class,
+					msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -502,6 +571,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return getCreditreduction();
 		case CourseworkPackage.COURSE__STUDYPROGRAM:
 			return getStudyprogram();
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			return getUniversity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -550,6 +621,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			getStudyprogram().clear();
 			getStudyprogram().addAll((Collection<? extends StudyProgram>) newValue);
 			return;
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			setUniversity((University) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -592,6 +666,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		case CourseworkPackage.COURSE__STUDYPROGRAM:
 			getStudyprogram().clear();
 			return;
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			setUniversity((University) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -624,6 +701,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			return creditreduction != null && !creditreduction.isEmpty();
 		case CourseworkPackage.COURSE__STUDYPROGRAM:
 			return studyprogram != null && !studyprogram.isEmpty();
+		case CourseworkPackage.COURSE__UNIVERSITY:
+			return getUniversity() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link tdt4250.coursework.Organisation#getDepartmentName <em>Department Name</em>}</li>
  *   <li>{@link tdt4250.coursework.Organisation#getStaff <em>Staff</em>}</li>
  *   <li>{@link tdt4250.coursework.Organisation#getCourse <em>Course</em>}</li>
+ *   <li>{@link tdt4250.coursework.Organisation#getUniversity <em>University</em>}</li>
  * </ul>
  *
  * @see tdt4250.coursework.CourseworkPackage#getOrganisation()
@@ -86,5 +87,33 @@ public interface Organisation extends EObject {
 	 * @generated
 	 */
 	EList<Course> getCourse();
+
+	/**
+	 * Returns the value of the '<em><b>University</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link tdt4250.coursework.University#getOrganisation <em>Organisation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>University</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>University</em>' container reference.
+	 * @see #setUniversity(University)
+	 * @see tdt4250.coursework.CourseworkPackage#getOrganisation_University()
+	 * @see tdt4250.coursework.University#getOrganisation
+	 * @model opposite="Organisation" required="true" transient="false"
+	 * @generated
+	 */
+	University getUniversity();
+
+	/**
+	 * Sets the value of the '{@link tdt4250.coursework.Organisation#getUniversity <em>University</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>University</em>' container reference.
+	 * @see #getUniversity()
+	 * @generated
+	 */
+	void setUniversity(University value);
 
 } // Organisation
