@@ -178,7 +178,7 @@ public class CourseworkValidator extends EObjectValidator {
 		for (Role role : courseInstance.getRole()) {
 			bool = bool || role.getRoleKind() == RoleKinds.getByName("CourseCoordinator");
 		}
-		if (bool) {
+		if (!bool) {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
