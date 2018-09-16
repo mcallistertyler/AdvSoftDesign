@@ -28,6 +28,7 @@ This model details the information on NTNU course web pages.
 - **model**: Contains ecore, genmodel and NTNU.xmi which has the TDT4250 course and TDT4100 course details.
 
 ## Constraints
--**validateCourseInstance_hasCourseCoordinator**: Ensures that a course has at least one course coordinator.
--**validateEvaluationForm_totalPercentageEqualsOneHundred**: Checks that the total percentage of evaluation for a course instance is exactly 1.0
--**validateTimetable_maximumScheduledHours**: Checks that the maximum scheduled hours for a course in a study program are met according to the timetable
+Constrains are all coded in Java, they are:
+- **validateCourseInstance_hasCourseCoordinator**: Ensures that a course has at least one course coordinator.
+- **validateEvaluationForm_totalPercentageEqualsOneHundred**: Checks that the total percentage of evaluation for a course instance is exactly 1.0
+- **validateTimetable_maximumScheduledHours**: Checks that the maximum scheduled hours for a course in a study program are met according to the timetable
