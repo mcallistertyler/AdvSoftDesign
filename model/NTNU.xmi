@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coursework:University
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:coursework="http://www.example.org/coursework"
+    xsi:schemaLocation="http://www.example.org/coursework coursework.ecore"
+    name="NTNU">
+  <Room name="K5"/>
+  <Room name="A34"/>
+  <Room name="F6"/>
+  <Room name="U33"/>
+  <Room name="F1"/>
+  <Room name="R1"/>
+  <Course code="TDT4250"
+      name="Advanced Software Design"
+      content="Generic techniques for modeling, design and implementation of modular software, focussing on industrial techniques and domains. Component-based design, component-based architectures and frameworks, distributed component-based systems. Model-driven development of software, code generation and domain-specific languages. Testing, continuous integration, deployment and governance."
+      size="7.5"
+      recommendedCourse="//@Course.1 //@Course.2 //@Course.3 //@Course.4"
+      organisation="//@Organisation.0"
+      studyprogram="//@StudyProgram.0 //@StudyProgram.1 //@StudyProgram.2 //@StudyProgram.3">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-08-01T00:00:00.000+0200"
+        role="//@Organisation.0/@staff.0/@role.1 //@Organisation.0/@staff.0/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="0.7"/>
+        <evaluation
+            evaluationKind="Assignment"
+            totalPercentage="0.3"/>
+      </evaluationform>
+      <timetable
+          labHours="4.0"
+          lectureHours="3.0">
+        <lecture
+            room="//@Room.0"
+            studyprogram="//@StudyProgram.0 //@StudyProgram.1 //@StudyProgram.2 //@StudyProgram.3"
+            TimetableSlotKind="Lecture"
+            duration="0.75"
+            date="2018-09-10T00:00:00.000+0200"/>
+        <lecture
+            room="//@Room.1"
+            studyprogram="//@StudyProgram.0 //@StudyProgram.1 //@StudyProgram.2 //@StudyProgram.3"
+            duration="1.75"
+            date="2018-09-11T00:00:00.000+0200"/>
+        <lecture
+            room="//@Room.2"
+            studyprogram="//@StudyProgram.0 //@StudyProgram.1 //@StudyProgram.2 //@StudyProgram.3"
+            TimetableSlotKind="Lecture"
+            duration="1.75"
+            date="2018-09-12T00:00:00.000+0200"/>
+        <lecture
+            room="//@Room.3"
+            studyprogram="//@StudyProgram.0 //@StudyProgram.1 //@StudyProgram.2 //@StudyProgram.3"
+            duration="1.75"
+            date="2018-09-13T00:00:00.000+0200"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+    <creditreduction
+        course="//@Course.5"
+        reductionValue="7.5"/>
+  </Course>
+  <Course code="TDT4100"
+      name="Object-oriented Programming"
+      content="Basic algorithms and data structures, constructs and control flow in object-oriented languages. Modularization and re-use. Standard application programmers interface (API). Unit testing, error detection and tools for this. Object-oriented design. Use of class, object, sequence and collaboration diagrams in the UML. Use of design patterns. Simple app architecture. Java is used as implementation language."
+      size="7.5"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T23:00:00.000+0100"
+        role="//@Organisation.0/@staff.0/@role.1 //@Organisation.0/@staff.0/@role.0 //@Organisation.0/@staff.1/@role.0">
+      <evaluationform>
+        <evaluation
+            evaluationKind="Project"/>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          labHours="1.75"
+          lectureHours="3.5">
+        <lecture
+            room="//@Room.4"
+            TimetableSlotKind="Lecture"
+            duration="1.75"
+            date="2019-01-29T00:00:00.000+0100"/>
+        <lecture
+            room="//@Room.4"
+            duration="1.75"
+            date="2019-01-21T00:00:00.000+0100"/>
+        <lecture
+            room="//@Room.5"
+            TimetableSlotKind="Lecture"
+            duration="1.75"
+            date="2019-02-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+    <creditreduction
+        course="//@Course.6"
+        reductionValue="7.5"/>
+    <creditreduction
+        course="//@Course.7"
+        reductionValue="7.5"/>
+    <creditreduction
+        course="//@Course.8"
+        reductionValue="3.7"/>
+    <creditreduction
+        course="//@Course.9"
+        reductionValue="3.7"/>
+  </Course>
+  <Course code="TDT4140"
+      name="Software Engineering"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="TDT4175"
+      name="Information Systems"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="TDT4240"
+      name="Software Architecture"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="SIF8060"
+      name="Modellering av Informasjonssytemen"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="IT1104"
+      name="Information Retrieval"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="SIF8005"
+      name="Programming"
+      content=""
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="TD4102"
+      name="Procedural and Object Oriented Programming"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Course code="TDT4130"
+      name="Prosedyreorienter Programmering"
+      organisation="//@Organisation.0">
+    <semesterSpecificCourseInstance
+        semesterDate="2018-01-01T00:00:00.000+0100"
+        role="//@Organisation.0/@staff.2/@role.0">
+      <evaluationform>
+        <evaluation
+            totalPercentage="1.0"/>
+      </evaluationform>
+      <timetable
+          lectureHours="1.0">
+        <lecture
+            room="//@Room.0"
+            TimetableSlotKind="Lecture"
+            duration="1.0"
+            date="2018-01-01T00:00:00.000+0100"/>
+      </timetable>
+    </semesterSpecificCourseInstance>
+  </Course>
+  <Organisation
+      departmentName="Department of Computer Science"
+      course="//@Course.0 //@Course.1 //@Course.6 //@Course.7 //@Course.8 //@Course.9 //@Course.2 //@Course.3 //@Course.4 //@Course.5">
+    <staff name="Hallvard Trætteberg">
+      <role/>
+      <role
+          roleKind="CourseCoordinator"/>
+    </staff>
+    <staff name="Rune Sætre">
+      <role/>
+    </staff>
+    <staff name="Placeholder Course Coordinator">
+      <role
+          roleKind="CourseCoordinator"/>
+    </staff>
+  </Organisation>
+  <StudyProgram
+      course="//@Course.0"
+      name="MIDT"/>
+  <StudyProgram
+      course="//@Course.0"
+      name="MTDT"/>
+  <StudyProgram
+      course="//@Course.0"
+      name="MTING"/>
+  <StudyProgram
+      course="//@Course.0"
+      name="MIT"/>
+</coursework:University>
