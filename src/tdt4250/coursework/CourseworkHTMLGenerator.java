@@ -1,14 +1,23 @@
 package tdt4250.coursework;
-
-import tdt4250.coursework.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public abstract class CourseworkHTMLGenerator {
+public class CourseworkHTMLGenerator {
 
-	ArrayList<String> generateHTML(University university){
+	ArrayList<String> generateHTML(University university) throws FileNotFoundException{
 		ArrayList<String> htmlPages = new ArrayList<String>();
+//		System.out.println(newUniversity.getCourse().getClass().getName());
+		PrintWriter out = new PrintWriter("C:\\Users\\Ty\\Documents\\AdvancedSoftwareDesign\\coursework.html");
+		int counter = 0;
 		for(Course course : university.getCourse()) {
 			htmlPages.add(generateCourseHTML(course));
+			counter++;
+			out.println(htmlPages);
+			System.out.println(counter);
+		}
+		for(int i = 0; i < htmlPages.size(); i++) {
+			System.out.println(htmlPages.get(i));
 		}
 		return htmlPages;
 	}
@@ -160,9 +169,4 @@ public abstract class CourseworkHTMLGenerator {
 		timetableDiv += "</table></div>";
 		return timetableDiv;
 	}
-	
-	public static void main(String[] args) {
-		Course uni = new Course();
-	}
-	
 }
